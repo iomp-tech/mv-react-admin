@@ -1,0 +1,50 @@
+{
+  "name": "mv-admin",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.5.0",
+    "admin-on-rest": "^1.4.1",
+    "axios": "^0.21.0",
+    "base64image": "^0.1.1",
+    "jwt-decode": "^3.1.2",
+    "moment": "^2.29.1",
+    "prop-types": "^15.7.2",
+    "ra-data-json-server": "^3.10.3",
+    "ra-data-simple-rest": "^3.10.2",
+    "ra-i18n-polyglot": "^3.10.3",
+    "ra-input-rich-text": "^3.10.1",
+    "ra-language-russian": "^3.3.0",
+    "react": "^17.0.1",
+    "react-admin": "^3.11.3",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
