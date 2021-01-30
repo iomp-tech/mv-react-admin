@@ -134,7 +134,6 @@ const PostsCreate = (props) => {
                             maxSize="2000000"
                             accept="image/*"
                             placeholder={<p>Перетащите файл сюда</p>}
-                            validate={[required()]}
                             style={style}
                         >
                             <ImageField source="src" title="title" />

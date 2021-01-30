@@ -31,7 +31,9 @@ const myDataProfider = {
 				formData.append('block', JSON.stringify(params.data[key]));
 
 				for (let key2 in params.data[key]) {
-					formData.append('thumb-' + key2, params.data[key][key2].thumbBlock.rawFile);
+					if (params.data[key][key2].thumbBlock) {
+						formData.append('thumb-' + key2, params.data[key][key2].thumbBlock.rawFile);
+					}
 				}
 
 			} else if (key === "content") {
@@ -79,7 +81,7 @@ const myDataProfider = {
 					formData.append('block', JSON.stringify(params.data[key]));
 
 					for (let key2 in params.data[key]) {
-						if (params.data[key][key2].thumbBlock.rawFile) {
+						if (params.data[key][key2].thumbBlock) {
 							formData.append('thumb-' + key2, params.data[key][key2].thumbBlock.rawFile);
 						}
 					}

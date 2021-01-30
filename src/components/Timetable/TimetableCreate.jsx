@@ -46,7 +46,7 @@ const TimetableCreate = (props) => {
             .then(({data}) => {
                 setType(data);
             });
-	}, []);
+    }, []);
 
     const style = {width: "75%"};
 
@@ -81,6 +81,11 @@ const TimetableCreate = (props) => {
                     source="dateDelete"
                     label="Дата и время удаления"
                     validate={[required()]}
+                    style={style}
+                />
+                <BooleanInput
+                    label="Видимо ли мероприятие?"
+                    source="visibility"
                     style={style}
                 />
                 {type.length ? (

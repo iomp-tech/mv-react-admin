@@ -136,7 +136,6 @@ const PostsEdit = (props) => {
                             maxSize="2000000"
                             accept="image/*"
                             placeholder={<p>Перетащите файл сюда</p>}
-                            validate={[required()]}
                             style={style}
                         >
                             <PreviewImage source="src" />

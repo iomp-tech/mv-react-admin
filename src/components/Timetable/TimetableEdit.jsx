@@ -84,6 +84,11 @@ const TimetableEdit = (props) => {
                     validate={[required()]}
                     style={style}
                 />
+                <BooleanInput
+                    label="Видимо ли мероприятие?"
+                    source="visibility"
+                    style={style}
+                />
                 {type.length ? (
                     <SelectInput
                         label="Тип"

@@ -29,8 +29,8 @@ class Menu extends Component {
         {name: "C", label: "Секции", icon: <MenuIcon />},
         {name: "D", label: "Преподаватели", icon: <MenuIcon />},
         {name: "F", label: "Футер (подвал)", icon: <MenuIcon />},
-        //    {name: "G", label: "Посты", icon: <MenuIcon />},
-        //    {name: "H", label: "Расписание", icon: <MenuIcon />},
+        {name: "G", label: "Посты", icon: <MenuIcon />},
+        {name: "H", label: "Расписание", icon: <MenuIcon />},
         {name: "I", label: "Форма подписки", icon: <MenuIcon />},
         {name: "J", label: "О Институте", icon: <MenuIcon />},
     ];

@@ -51,6 +51,11 @@ const TimetableList = (props) => {
                     sortable={false}
                 />
                 <TextField label="Имя" source="title" sortable={false} />
+                <BooleanField
+                    label="Видимо ли мероприятие?"
+                    source="visibility"
+                    sortable={false}
+                />
                 <SelectField
                     label="Категория"
                     source="category"

@@ -61,7 +61,7 @@ export default {
 
 		if (token) {
 			const { exp } = jwt_decode(token);
-			if (exp > (new Date().getTime() / 1000) - 60) {
+			if (exp > (new Date().getTime() / 1000) - 1440) {
 				return Promise.resolve();
 			} else {
 				const request = new Request(`${servicesHost}/refresh`, {

@@ -29,12 +29,12 @@ const App = () => (
 		<Resource name="footer/menu" list={FooterMenuList} create={FooterMenuCreate} edit={FooterMenuEdit} options={{ label: 'Меню', menu: "F" }} />
 
 		<Resource name="footer/contact" list={FooterContactList} edit={FooterContactEdit} options={{ label: 'Контакты', menu: "F" }} />
-		{/* 
+
 		<Resource name="posts" list={PostsList} create={PostsCreate} edit={PostsEdit} options={{ label: 'Посты', menu: "G" }} />
 		<Resource name="postType" list={PostTypeList} create={PostTypeCreate} edit={PostTypeEdit} options={{ label: 'Типы постов', menu: "G" }} />
 
 		<Resource name="timetable" list={TimetableList} create={TimetableCreate} edit={TimetableEdit} options={{ label: 'Расписание', menu: "H" }} />
-		<Resource name="timetableType" list={TimetableTypeList} create={TimetableTypeCreate} edit={TimetableTypeEdit} options={{ label: 'Типы расписания', menu: "H" }} /> */}
+		<Resource name="timetableType" list={TimetableTypeList} create={TimetableTypeCreate} edit={TimetableTypeEdit} options={{ label: 'Типы расписания', menu: "H" }} />
 
 		<Resource name="form" list={FormSubcsribeList} edit={FormSubcsribeEdit} options={{ label: 'Форма подписки', menu: "I" }} />
 
