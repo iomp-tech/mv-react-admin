@@ -64,29 +64,87 @@ const TimetableCreate = (props) => {
                     style={style}
                 />
                 <TextInput
+                    source="key"
+                    label="Ключ"
+                    validate={[required()]}
+                    style={style}
+                />
+                <TextInput
                     source="description"
                     label="Описание"
                     validate={[required()]}
                     style={style}
                     multiline
                 />
-                <DateTimeInput
-                    parse={dateParser}
-                    source="date"
-                    label="Дата и время проведения"
-                    validate={[required()]}
-                    style={style}
-                />
-                <DateTimeInput
-                    source="dateDelete"
-                    label="Дата и время удаления"
-                    validate={[required()]}
-                    style={style}
-                />
+                <BooleanInput label="Авто" source="auto" style={style} />
+                <FormDataConsumer>
+                    {({formData}) =>
+                        formData.auto && (
+                            <TextInput
+                                source="day"
+                                label="На сколько дней продлевается мероприятие"
+                                validate={[required()]}
+                                style={style}
+                                type="number"
+                            />
+                        )
+                    }
+                </FormDataConsumer>
+                <BooleanInput label="Диапазон" source="range" style={style} />
+                <FormDataConsumer>
+                    {({formData}) =>
+                        formData.range ? (
+                            <>
+                                <DateTimeInput
+                                    parse={dateParser}
+                                    source="minDate"
+                                    label="С"
+                                    validate={[required()]}
+                                    style={style}
+                                />
+                                <DateTimeInput
+                                    parse={dateParser}
+                                    source="maxDate"
+                                    label="До"
+                                    validate={[required()]}
+                                    style={style}
+                                />
+                            </>
+                        ) : (
+                            <DateTimeInput
+                                parse={dateParser}
+                                source="date"
+                                label="Дата и время проведения"
+                                validate={[required()]}
+                                style={style}
+                            />
+                        )
+                    }
+                </FormDataConsumer>
+                <FormDataConsumer>
+                    {({formData}) =>
+                        !formData.auto && (
+                            <DateTimeInput
+                                parse={dateParser}
+                                source="dateDelete"
+                                label="Дата и время удаления"
+                                validate={[required()]}
+                                style={style}
+                            />
+                        )
+                    }
+                </FormDataConsumer>
                 <BooleanInput
                     label="Видимо ли мероприятие?"
                     source="visibility"
                     style={style}
+                />
+                <TextInput
+                    source="url"
+                    label="Url для ридеректа"
+                    validate={[required()]}
+                    style={style}
+                    multiline
                 />
                 {type.length ? (
                     <SelectInput

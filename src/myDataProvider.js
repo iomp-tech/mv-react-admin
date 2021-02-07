@@ -4,6 +4,7 @@ import moment from "moment";
 import "moment/locale/ru";
 
 //https://iomp.ru/api/public/api
+//http://127.0.0.1:8000/api
 export const servicesHost = 'http://127.0.0.1:8000/api';
 
 const httpClient = (url, options = {}) => {
@@ -25,7 +26,7 @@ const myDataProfider = {
 		console.log(params);
 
 		for (let key in params.data) {
-			if (key === "thumb" || key === "avatar") {
+			if (key === "thumb" || key === "avatar" || key === "icon") {
 				formData.append(key, params.data[key].rawFile);
 			} else if (key === "block") {
 				formData.append('block', JSON.stringify(params.data[key]));
@@ -44,11 +45,6 @@ const myDataProfider = {
 						formData.append('file-' + key2, params.data[key][key2].file.rawFile);
 					}
 				}
-			} else if (key === "date" || key === "dateDelete") {
-				const d = moment(params.data[key], "YYYY-MM-DDTHH:mm")
-					.locale("ru")
-					.format("DD.MM.YYYY HH:mm");
-				formData.append(key, d);
 			} else {
 				formData.append(key, params.data[key]);
 			}
@@ -73,7 +69,7 @@ const myDataProfider = {
 
 		for (let key in params.data) {
 			if (params.data[key]) {
-				if (key === "thumb" || key === "avatar") {
+				if (key === "thumb" || key === "avatar" || key === "icon") {
 					if (params.data[key].rawFile) {
 						formData.append(key, params.data[key].rawFile);
 					}
@@ -93,11 +89,6 @@ const myDataProfider = {
 							formData.append('file-' + key2, params.data[key][key2].file.rawFile);
 						}
 					}
-				} else if (key === "date" || key === "dateDelete") {
-					const d = moment(params.data[key], "YYYY-MM-DDTHH:mm")
-						.locale("ru")
-						.format("DD.MM.YYYY HH:mm");
-					formData.append(key, d);
 				} else {
 					formData.append(key, params.data[key]);
 				}

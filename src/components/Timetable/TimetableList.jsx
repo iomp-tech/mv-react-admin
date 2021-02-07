@@ -51,6 +51,7 @@ const TimetableList = (props) => {
                     sortable={false}
                 />
                 <TextField label="Имя" source="title" sortable={false} />
+                <TextField label="Ключ" source="key" sortable={false} />
                 <BooleanField
                     label="Видимо ли мероприятие?"
                     source="visibility"
@@ -72,6 +73,19 @@ const TimetableList = (props) => {
                     sortable={false}
                     choices={type}
                 />
+                <BooleanField label="Авто" source="auto" sortable={false} />
+                <TextField
+                    label="На сколько дней продлевается мероприятие"
+                    source="day"
+                    sortable={false}
+                />
+                <BooleanField
+                    label="Диапазон"
+                    source="range"
+                    sortable={false}
+                />
+                <TextField label="С" source="minDate" sortable={false} />
+                <TextField label="До" source="maxDate" sortable={false} />
                 <TextField
                     label="Дата проведения"
                     source="date"
@@ -80,6 +94,11 @@ const TimetableList = (props) => {
                 <TextField
                     label="Дата удаления"
                     source="dateDelete"
+                    sortable={false}
+                />
+                <UrlField
+                    label="Url для ридеректа"
+                    source="url"
                     sortable={false}
                 />
                 <BooleanField

@@ -43,9 +43,13 @@ export { default as TeachersEdit } from './Teachers/TeachersEdit';
 export { default as FooterMenuList } from './Footer/FooterMenuList';
 export { default as FooterMenuCreate } from './Footer/FooterMenuCreate';
 export { default as FooterMenuEdit } from './Footer/FooterMenuEdit';
-
+// goods - contact
 export { default as FooterContactList } from './Footer/FooterContactList';
 export { default as FooterContactEdit } from './Footer/FooterContactEdit';
+// goods - social
+export { default as FooterSocialList } from './Footer/FooterSocialList';
+export { default as FooterSocialCreate } from './Footer/FooterSocialCreate';
+export { default as FooterSocialEdit } from './Footer/FooterSocialEdit';
 
 // posts
 export { default as PostsList } from './Posts/PostsList';

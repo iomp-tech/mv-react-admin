@@ -8,7 +8,7 @@ import myDataProvider from './myDataProvider';
 
 import { Login } from './page';
 
-import { MyLayout, GoodsCreate, GoodsEdit, GoodsList, TimetypeGoodsList, TimetypeGoodsCreate, TimetypeGoodsEdit, CategoriesList, CategoriesCreate, CategoriesEdit, SectionMainList, SectionMainEdit, TeachersList, TeachersCreate, TeachersEdit, SectionServicesList, SectionServicesCreate, SectionServicesEdit, SectionAboutList, SectionAboutCreate, SectionAboutEdit, FooterMenuCreate, FooterMenuList, FooterMenuEdit, FooterContactList, FooterContactEdit, PostsList, PostsCreate, PostsEdit, PostTypeList, PostTypeCreate, PostTypeEdit, TimetableList, TimetableCreate, TimetableEdit, TimetableTypeList, TimetableTypeCreate, TimetableTypeEdit, FormSubcsribeList, FormSubcsribeEdit, InstituteList, InstituteCreate, InstituteEdit, GoodsTypeList, GoodsTypeCreate, GoodsTypeEdit } from './components';
+import { MyLayout, GoodsCreate, GoodsEdit, GoodsList, TimetypeGoodsList, TimetypeGoodsCreate, TimetypeGoodsEdit, CategoriesList, CategoriesCreate, CategoriesEdit, SectionMainList, SectionMainEdit, TeachersList, TeachersCreate, TeachersEdit, SectionServicesList, SectionServicesCreate, SectionServicesEdit, SectionAboutList, SectionAboutCreate, SectionAboutEdit, FooterMenuCreate, FooterMenuList, FooterMenuEdit, FooterContactList, FooterContactEdit, PostsList, PostsCreate, PostsEdit, PostTypeList, PostTypeCreate, PostTypeEdit, TimetableList, TimetableCreate, TimetableEdit, TimetableTypeList, TimetableTypeCreate, TimetableTypeEdit, FormSubcsribeList, FormSubcsribeEdit, InstituteList, InstituteCreate, InstituteEdit, GoodsTypeList, GoodsTypeCreate, GoodsTypeEdit, FooterSocialList, FooterSocialEdit, FooterSocialCreate } from './components';
 
 const i18nProvider = polyglotI18nProvider(() => russianMessages, 'ru');
 
@@ -27,7 +27,7 @@ const App = () => (
 		<Resource name="teachers" list={TeachersList} create={TeachersCreate} edit={TeachersEdit} options={{ label: 'Преподаватели', menu: "D" }} />
 
 		<Resource name="footer/menu" list={FooterMenuList} create={FooterMenuCreate} edit={FooterMenuEdit} options={{ label: 'Меню', menu: "F" }} />
-
+		<Resource name="footer/social" list={FooterSocialList} edit={FooterSocialEdit} create={FooterSocialCreate} options={{ label: 'Соц.сети', menu: "F" }} />
 		<Resource name="footer/contact" list={FooterContactList} edit={FooterContactEdit} options={{ label: 'Контакты', menu: "F" }} />
 
 		<Resource name="posts" list={PostsList} create={PostsCreate} edit={PostsEdit} options={{ label: 'Посты', menu: "G" }} />
