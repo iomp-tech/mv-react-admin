@@ -8,7 +8,7 @@ import myDataProvider from './myDataProvider';
 
 import { Login } from './page';
 
-import { MyLayout, GoodsCreate, GoodsEdit, GoodsList, TimetypeGoodsList, TimetypeGoodsCreate, TimetypeGoodsEdit, CategoriesList, CategoriesCreate, CategoriesEdit, SectionMainList, SectionMainEdit, TeachersList, TeachersCreate, TeachersEdit, SectionServicesList, SectionServicesCreate, SectionServicesEdit, SectionAboutList, SectionAboutCreate, SectionAboutEdit, FooterMenuCreate, FooterMenuList, FooterMenuEdit, FooterContactList, FooterContactEdit, PostsList, PostsCreate, PostsEdit, PostTypeList, PostTypeCreate, PostTypeEdit, TimetableList, TimetableCreate, TimetableEdit, TimetableTypeList, TimetableTypeCreate, TimetableTypeEdit, FormSubcsribeList, FormSubcsribeEdit, InstituteList, InstituteCreate, InstituteEdit, GoodsTypeList, GoodsTypeCreate, GoodsTypeEdit, FooterSocialList, FooterSocialEdit, FooterSocialCreate } from './components';
+import { MyLayout, GoodsCreate, GoodsEdit, GoodsList, TimetypeGoodsList, TimetypeGoodsCreate, TimetypeGoodsEdit, CategoriesList, CategoriesCreate, CategoriesEdit, SectionMainList, SectionMainEdit, TeachersList, TeachersCreate, TeachersEdit, SectionServicesList, SectionServicesCreate, SectionServicesEdit, SectionAboutList, SectionAboutCreate, SectionAboutEdit, FooterMenuCreate, FooterMenuList, FooterMenuEdit, FooterContactList, FooterContactEdit, PostsList, PostsCreate, PostsEdit, PostTypeList, PostTypeCreate, PostTypeEdit, TimetableList, TimetableCreate, TimetableEdit, TimetableTypeList, TimetableTypeCreate, TimetableTypeEdit, FormSubcsribeList, FormSubcsribeEdit, InstituteList, InstituteCreate, InstituteEdit, GoodsTypeList, GoodsTypeCreate, GoodsTypeEdit, FooterSocialList, FooterSocialEdit, FooterSocialCreate, UsersList, UserEdit } from './components';
 
 const i18nProvider = polyglotI18nProvider(() => russianMessages, 'ru');
 
@@ -36,9 +36,11 @@ const App = () => (
 		<Resource name="timetable" list={TimetableList} create={TimetableCreate} edit={TimetableEdit} options={{ label: 'Расписание', menu: "H" }} />
 		<Resource name="timetableType" list={TimetableTypeList} create={TimetableTypeCreate} edit={TimetableTypeEdit} options={{ label: 'Типы расписания', menu: "H" }} />
 
-		<Resource name="form" list={FormSubcsribeList} edit={FormSubcsribeEdit} options={{ label: 'Форма подписки', menu: "I" }} />
+		<Resource name="form" list={FormSubcsribeList} edit={FormSubcsribeEdit} options={{ label: 'Рассылка института', menu: "I" }} />
 
 		<Resource name="institute" list={InstituteList} create={InstituteCreate} edit={InstituteEdit} options={{ label: 'О Институте', menu: "J" }} />
+
+		<Resource name="users" list={UsersList} edit={UserEdit} options={{ label: 'Пользователи', menu: "K" }} />
 	</Admin>
 );
 

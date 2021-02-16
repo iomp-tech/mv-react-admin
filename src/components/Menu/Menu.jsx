@@ -15,9 +15,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 import {withStyles} from "@material-ui/core/styles";
 
-const menuStyles = (theme) => ({
+const menuStyles = () => ({
     nested: {
-        paddingLeft: "15px",
         fontSize: "18px",
     },
 });
@@ -31,8 +30,9 @@ class Menu extends Component {
         {name: "F", label: "Футер (подвал)", icon: <MenuIcon />},
         {name: "G", label: "Посты", icon: <MenuIcon />},
         {name: "H", label: "Расписание", icon: <MenuIcon />},
-        {name: "I", label: "Форма подписки", icon: <MenuIcon />},
+        {name: "I", label: "Рассылка института", icon: <MenuIcon />},
         {name: "J", label: "О Институте", icon: <MenuIcon />},
+        {name: "K", label: "Пользователи", icon: <MenuIcon />},
     ];
     constructor(props) {
         super(props);

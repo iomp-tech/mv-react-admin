@@ -1,11 +1,10 @@
 import { fetchUtils } from "react-admin";
 import restServerProvider from 'ra-data-json-server';
-import moment from "moment";
-import "moment/locale/ru";
+import { format, isDate } from "date-fns";
 
-//https://iomp.ru/api/public/api
+//https://imeninik.ru/api/public/api
 //http://127.0.0.1:8000/api
-export const servicesHost = 'http://127.0.0.1:8000/api';
+export const servicesHost = 'https://imeninik.ru/api/public/api';
 
 const httpClient = (url, options = {}) => {
 	if (!options.headers) {
@@ -23,8 +22,6 @@ const myDataProfider = {
 	create: (resource, params) => {
 		let formData = new FormData();
 
-		console.log(params);
-
 		for (let key in params.data) {
 			if (key === "thumb" || key === "avatar" || key === "icon") {
 				formData.append(key, params.data[key].rawFile);
@@ -36,6 +33,9 @@ const myDataProfider = {
 						formData.append('thumb-' + key2, params.data[key][key2].thumbBlock.rawFile);
 					}
 				}
+
+			} else if (key === "date" || key === "dateDelete" || key === "minDate" || key === "maxDate") {
+				formData.append(key, format(params.data[key], 'yyyy-MM-dd, HH:mm'));
 
 			} else if (key === "content") {
 				formData.append('content', JSON.stringify(params.data[key]));
@@ -80,6 +80,10 @@ const myDataProfider = {
 						if (params.data[key][key2].thumbBlock) {
 							formData.append('thumb-' + key2, params.data[key][key2].thumbBlock.rawFile);
 						}
+					}
+				} else if (key === "date" || key === "dateDelete" || key === "minDate" || key === "maxDate") {
+					if (isDate(params.data[key])) {
+						formData.append(key, format(params.data[key], 'yyyy-MM-dd, HH:mm'));
 					}
 				} else if (key === "content") {
 					formData.append('content', JSON.stringify(params.data[key]));

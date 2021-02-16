@@ -77,3 +77,7 @@ export { default as FormSubcsribeEdit } from './FormSubcsribe/FormSubcsribeEdit'
 export { default as InstituteList } from './Institute/InstituteList';
 export { default as InstituteCreate } from './Institute/InstituteCreate';
 export { default as InstituteEdit } from './Institute/InstituteEdit';
+
+// users
+export { default as UsersList } from './Users/UsersList';
+export { default as UserEdit } from './Users/UserEdit';
