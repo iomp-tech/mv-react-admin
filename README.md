@@ -26,5 +26,3 @@ cd iomp-react-admin
 npm install
 npm start
 ```
-
-"# iomp-react-admin" 
