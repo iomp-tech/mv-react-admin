@@ -37,7 +37,7 @@ const Login = () => {
         <ThemeProvider theme={createMuiTheme(defaultTheme)}>
             <form onSubmit={submit} style={style}>
                 <img
-                    src="https://iomp.ru/api/public/storage/all/logo.svg"
+                    src="https://api.iomp.ru/public/storage/all/logo.svg"
                     alt="MasterVision"
                     style={{
                         width: "250px",

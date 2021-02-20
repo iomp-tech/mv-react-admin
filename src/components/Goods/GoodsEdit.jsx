@@ -64,7 +64,7 @@ const GoodsEdit = (props) => {
     const style = {width: "75%"};
 
     return (
-        <Edit {...props}>
+        <Edit {...props} title="Редактировать товар">
             <SimpleForm>
                 <TextInput
                     source="id_awo"
@@ -200,6 +200,7 @@ const GoodsEdit = (props) => {
                         )
                     }
                 </FormDataConsumer>
+                <BooleanInput label="Виден ли товар?" source="visibility" />
                 <ImageInput
                     source="thumb"
                     label="Изображение (максимальный размер 2МБ)"

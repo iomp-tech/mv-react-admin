@@ -196,6 +196,7 @@ const GoodsCreate = (props) => {
                         )
                     }
                 </FormDataConsumer>
+                <BooleanInput label="Виден ли товар?" source="visibility" />
                 <ImageInput
                     source="thumb"
                     label="Изображение (максимальный размер 2МБ)"

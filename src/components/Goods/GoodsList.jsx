@@ -112,6 +112,11 @@ const GoodsList = (props) => {
                     source="section"
                     sortable={false}
                 />
+                <BooleanField
+                    label="Виден ли товар"
+                    source="visibility"
+                    sortable={false}
+                />
                 <TextField
                     label="Теги для поиска"
                     source="searchTags"
