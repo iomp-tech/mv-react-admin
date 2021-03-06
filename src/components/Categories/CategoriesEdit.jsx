@@ -11,22 +11,22 @@ import {
 
 import {PreviewImage} from ".././";
 
-const CategoriesEdit = (props) => {
-    const style = {width: "75%"};
+import {defaultStyle} from "../../style";
 
+const CategoriesEdit = (props) => {
     return (
         <Edit {...props}>
             <SimpleForm>
                 <TextInput
                     label="Название"
                     source="title"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
                 <TextInput
                     label="Ключ категории для системы (Только англиский язык. Пример: psychology)"
                     source="key"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
                 <ImageInput
@@ -36,7 +36,7 @@ const CategoriesEdit = (props) => {
                     accept="image/*"
                     placeholder={<p>Перетащите файл сюда</p>}
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 >
                     <PreviewImage source="src" />
                 </ImageInput>

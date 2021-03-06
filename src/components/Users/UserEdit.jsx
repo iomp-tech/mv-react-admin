@@ -11,43 +11,43 @@ import {
 
 import {PreviewImage} from ".././";
 
-const UserEdit = (props) => {
-    const style = {width: "75%"};
+import {defaultStyle} from "../../style";
 
+const UserEdit = (props) => {
     return (
         <Edit {...props}>
             <SimpleForm>
                 <TextInput
                     label="Имя"
                     source="first_name"
-                    style={style}
+                    style={defaultStyle}
                 />
                 <TextInput
                     label="Фамилия"
                     source="last_name"
-                    style={style}
+                    style={defaultStyle}
                 />
                 <TextInput
                     label="Email"
                     source="email"
-                    style={style}
+                    style={defaultStyle}
                 />
                 <TextInput
                     label="Пароль"
                     source="password"
-                    style={style}
+                    style={defaultStyle}
                 />
                 <BooleanInput
                     label="Подтвержден"
                     source="confirmed"
-                    style={style}
+                    style={defaultStyle}
                 />
                 <ImageInput
                     source="avatar"
                     label="Аватар"
                     accept="image/*"
                     placeholder={<p>Перетащите файл сюда</p>}
-                    style={style}
+                    style={defaultStyle}
                 >
                     <PreviewImage source="src" />
                 </ImageInput>

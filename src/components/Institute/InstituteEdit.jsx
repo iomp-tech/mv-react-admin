@@ -16,22 +16,22 @@ import PreviewImage from "../All/PreviewImage";
 
 import RichTextInput from "ra-input-rich-text";
 
-const InstituteEdit = (props) => {
-    const style = {width: "75%"};
+import {defaultStyle, arrayInputStyle} from "../../style";
 
+const InstituteEdit = (props) => {
     return (
         <Edit {...props}>
             <SimpleForm>
                 <TextInput
                     label="Имя"
                     source="title"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
                 <ArrayInput
                     source="content"
                     label="Содержание и подразделы"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 >
                     <SimpleFormIterator>
@@ -39,7 +39,7 @@ const InstituteEdit = (props) => {
                             source="title"
                             label="Имя подраздела"
                             validate={[required()]}
-                            style={style}
+                            style={defaultStyle}
                         />
                         <BooleanInput
                             label="Есть ли файл?"
@@ -55,7 +55,7 @@ const InstituteEdit = (props) => {
                                             <p>Перетащите файл сюда</p>
                                         }
                                         validate={[required()]}
-                                        style={style}
+                                        style={arrayInputStyle}
                                     >
                                         <PreviewImage source="src" />
                                     </ImageInput>
@@ -64,7 +64,7 @@ const InstituteEdit = (props) => {
                                         source={getSource("text")}
                                         label="Текст"
                                         validate={[required()]}
-                                        style={style}
+                                        style={arrayInputStyle}
                                     />
                                 )
                             }

@@ -17,6 +17,8 @@ import {
 
 import RichTextInput from "ra-input-rich-text";
 
+import {defaultStyle, arrayInputStyle} from "../../style";
+
 const PostsCreate = (props) => {
     const [categories, setCategories] = React.useState([]);
     const [teachers, setTeachers] = React.useState([]);
@@ -49,8 +51,6 @@ const PostsCreate = (props) => {
             });
     }, []);
 
-    const style = {width: "75%"};
-
     return (
         <Create {...props} title="Новый пост">
             <SimpleForm>
@@ -58,13 +58,13 @@ const PostsCreate = (props) => {
                     source="title"
                     label="Имя поста"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
                 <TextInput
                     source="smallDescription"
                     label="Краткое описание"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                     multiline
                 />
                 {categories.length ? (
@@ -75,7 +75,7 @@ const PostsCreate = (props) => {
                         optionValue="key"
                         optionText="title"
                         validate={[required()]}
-                        style={style}
+                        style={defaultStyle}
                     />
                 ) : null}
                 {postType.length ? (
@@ -86,7 +86,7 @@ const PostsCreate = (props) => {
                         optionValue="key"
                         optionText="title"
                         validate={[required()]}
-                        style={style}
+                        style={defaultStyle}
                     />
                 ) : null}
                 {teachers.length ? (
@@ -95,7 +95,7 @@ const PostsCreate = (props) => {
                         source="auth"
                         choices={teachers}
                         validate={[required()]}
-                        style={style}
+                        style={defaultStyle}
                     />
                 ) : null}
                 <ImageInput
@@ -105,14 +105,14 @@ const PostsCreate = (props) => {
                     accept="image/*"
                     placeholder={<p>Перетащите файл сюда</p>}
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 >
                     <ImageField source="src" />
                 </ImageInput>
                 <ArrayInput
                     source="block"
                     label="Блоки"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 >
                     <SimpleFormIterator>
@@ -120,13 +120,13 @@ const PostsCreate = (props) => {
                             source="title"
                             label="Имя блока"
                             validate={[required()]}
-                            style={style}
+                            style={arrayInputStyle}
                         />
                         <RichTextInput
                             label="Тело блока"
                             source="body"
                             validate={[required()]}
-                            style={style}
+                            style={arrayInputStyle}
                         />
                         <ImageInput
                             source="thumbBlock"
@@ -134,7 +134,7 @@ const PostsCreate = (props) => {
                             maxSize="2000000"
                             accept="image/*"
                             placeholder={<p>Перетащите файл сюда</p>}
-                            style={style}
+                            style={arrayInputStyle}
                         >
                             <ImageField source="src" title="title" />
                         </ImageInput>

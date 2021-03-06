@@ -8,7 +8,7 @@ import myDataProvider from './myDataProvider';
 
 import { Login } from './page';
 
-import { MyLayout, GoodsCreate, GoodsEdit, GoodsList, TimetypeGoodsList, TimetypeGoodsCreate, TimetypeGoodsEdit, CategoriesList, CategoriesCreate, CategoriesEdit, SectionMainList, SectionMainEdit, TeachersList, TeachersCreate, TeachersEdit, SectionServicesList, SectionServicesCreate, SectionServicesEdit, SectionAboutList, SectionAboutCreate, SectionAboutEdit, FooterMenuCreate, FooterMenuList, FooterMenuEdit, FooterContactList, FooterContactEdit, PostsList, PostsCreate, PostsEdit, PostTypeList, PostTypeCreate, PostTypeEdit, TimetableList, TimetableCreate, TimetableEdit, TimetableTypeList, TimetableTypeCreate, TimetableTypeEdit, FormSubcsribeList, FormSubcsribeEdit, InstituteList, InstituteCreate, InstituteEdit, GoodsTypeList, GoodsTypeCreate, GoodsTypeEdit, FooterSocialList, FooterSocialEdit, FooterSocialCreate, UsersList, UserEdit } from './components';
+import { MyLayout, GoodsCreate, GoodsEdit, GoodsList, GoodsTimetypeList, GoodsTimetypeCreate, GoodsTimetypeEdit, CategoriesList, CategoriesCreate, CategoriesEdit, SectionMainList, SectionMainEdit, TeachersList, TeachersCreate, TeachersEdit, SectionServicesList, SectionServicesCreate, SectionServicesEdit, SectionAboutList, SectionAboutCreate, SectionAboutEdit, FooterMenuCreate, FooterMenuList, FooterMenuEdit, FooterContactList, FooterContactEdit, PostsList, PostsCreate, PostsEdit, PostTypeList, PostTypeCreate, PostTypeEdit, TimetableList, TimetableCreate, TimetableEdit, TimetableTypeList, TimetableTypeCreate, TimetableTypeEdit, FormSubcsribeList, FormSubcsribeEdit, InstituteList, InstituteCreate, InstituteEdit, GoodsTypeList, GoodsTypeCreate, GoodsTypeEdit, FooterSocialList, FooterSocialEdit, FooterSocialCreate, FooterLegalList, FooterLegalCreate, FooterLegalEdit, UsersList, UserEdit } from './components';
 
 const i18nProvider = polyglotI18nProvider(() => russianMessages, 'ru');
 
@@ -17,7 +17,7 @@ const App = () => (
 		<Resource name="categories" list={CategoriesList} create={CategoriesCreate} edit={CategoriesEdit} options={{ label: 'Категории', menu: "A" }} />
 
 		<Resource name="goods" create={GoodsCreate} edit={GoodsEdit} list={GoodsList} options={{ label: 'Товары', menu: "B" }} />
-		<Resource name="goodsTimetype" list={TimetypeGoodsList} create={TimetypeGoodsCreate} edit={TimetypeGoodsEdit} options={{ label: 'Типы времени', menu: "B" }} />
+		<Resource name="goodsTimetype" list={GoodsTimetypeList} create={GoodsTimetypeCreate} edit={GoodsTimetypeEdit} options={{ label: 'Типы времени', menu: "B" }} />
 		<Resource name="goodsType" list={GoodsTypeList} create={GoodsTypeCreate} edit={GoodsTypeEdit} options={{ label: 'Типы товаров', menu: "B" }} />
 
 		<Resource name="section/main" list={SectionMainList} edit={SectionMainEdit} options={{ label: 'Главная секция', menu: "C" }} />
@@ -29,6 +29,7 @@ const App = () => (
 		<Resource name="footer/menu" list={FooterMenuList} create={FooterMenuCreate} edit={FooterMenuEdit} options={{ label: 'Меню', menu: "F" }} />
 		<Resource name="footer/social" list={FooterSocialList} edit={FooterSocialEdit} create={FooterSocialCreate} options={{ label: 'Соц.сети', menu: "F" }} />
 		<Resource name="footer/contact" list={FooterContactList} edit={FooterContactEdit} options={{ label: 'Контакты', menu: "F" }} />
+		<Resource name="footer/legal" list={FooterLegalList} create={FooterLegalCreate} edit={FooterLegalEdit} options={{ label: 'Юр. информация', menu: "F" }} />
 
 		<Resource name="posts" list={PostsList} create={PostsCreate} edit={PostsEdit} options={{ label: 'Посты', menu: "G" }} />
 		<Resource name="postType" list={PostTypeList} create={PostTypeCreate} edit={PostTypeEdit} options={{ label: 'Типы постов', menu: "G" }} />

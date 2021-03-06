@@ -9,7 +9,6 @@ import {
     TextInput,
     ArrayInput,
     ImageInput,
-    ImageField,
     SelectArrayInput,
     SelectInput,
     required,
@@ -17,7 +16,9 @@ import {
 
 import RichTextInput from "ra-input-rich-text";
 
-import {PreviewImage} from ".././";
+import { PreviewImage } from ".././";
+
+import {defaultStyle, arrayInputStyle} from "../../style";
 
 const PostsEdit = (props) => {
     const [categories, setCategories] = React.useState([]);
@@ -51,8 +52,6 @@ const PostsEdit = (props) => {
             });
     }, []);
 
-    const style = {width: "75%"};
-
     return (
         <Edit {...props}>
             <SimpleForm>
@@ -60,13 +59,13 @@ const PostsEdit = (props) => {
                     source="title"
                     label="Имя поста"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
                 <TextInput
                     source="smallDescription"
                     label="Краткое описание"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                     multiline
                 />
                 {categories.length ? (
@@ -77,7 +76,7 @@ const PostsEdit = (props) => {
                         optionValue="key"
                         optionText="title"
                         validate={[required()]}
-                        style={style}
+                        style={defaultStyle}
                     />
                 ) : null}
                 {postType.length ? (
@@ -88,7 +87,7 @@ const PostsEdit = (props) => {
                         optionValue="key"
                         optionText="title"
                         validate={[required()]}
-                        style={style}
+                        style={defaultStyle}
                     />
                 ) : null}
                 {teachers.length ? (
@@ -97,7 +96,7 @@ const PostsEdit = (props) => {
                         source="auth"
                         choices={teachers}
                         validate={[required()]}
-                        style={style}
+                        style={defaultStyle}
                     />
                 ) : null}
                 <ImageInput
@@ -107,14 +106,14 @@ const PostsEdit = (props) => {
                     accept="image/*"
                     placeholder={<p>Перетащите файл сюда</p>}
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 >
                     <PreviewImage source="src" />
                 </ImageInput>
                 <ArrayInput
                     source="block"
                     label="Блоки"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 >
                     <SimpleFormIterator>
@@ -122,13 +121,13 @@ const PostsEdit = (props) => {
                             source="title"
                             label="Имя блока"
                             validate={[required()]}
-                            style={style}
+                            style={arrayInputStyle}
                         />
                         <RichTextInput
                             label="Тело блока"
                             source="body"
                             validate={[required()]}
-                            style={style}
+                            style={arrayInputStyle}
                         />
                         <ImageInput
                             source="thumbBlock"
@@ -136,7 +135,7 @@ const PostsEdit = (props) => {
                             maxSize="2000000"
                             accept="image/*"
                             placeholder={<p>Перетащите файл сюда</p>}
-                            style={style}
+                            style={arrayInputStyle}
                         >
                             <PreviewImage source="src" />
                         </ImageInput>

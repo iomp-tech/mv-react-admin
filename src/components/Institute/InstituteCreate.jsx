@@ -15,22 +15,22 @@ import {
 
 import RichTextInput from "ra-input-rich-text";
 
-const InstituteCreate = (props) => {
-    const style = {width: "75%"};
+import {defaultStyle, arrayInputStyle} from "../../style";
 
+const InstituteCreate = (props) => {
     return (
         <Create {...props} title="Новый раздел">
             <SimpleForm>
                 <TextInput
                     label="Имя"
                     source="title"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
                 <ArrayInput
                     source="content"
                     label="Содержание и подразделы"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 >
                     <SimpleFormIterator>
@@ -38,7 +38,7 @@ const InstituteCreate = (props) => {
                             source="title"
                             label="Имя подраздела"
                             validate={[required()]}
-                            style={style}
+                            style={defaultStyle}
                         />
                         <BooleanInput
                             label="Есть ли файл?"
@@ -54,7 +54,7 @@ const InstituteCreate = (props) => {
                                             <p>Перетащите файл сюда</p>
                                         }
                                         validate={[required()]}
-                                        style={style}
+                                        style={arrayInputStyle}
                                     >
                                         <ImageField
                                             source="src"
@@ -66,7 +66,7 @@ const InstituteCreate = (props) => {
                                         source={getSource("text")}
                                         label="Текст"
                                         validate={[required()]}
-                                        style={style}
+                                        style={arrayInputStyle}
                                     />
                                 )
                             }

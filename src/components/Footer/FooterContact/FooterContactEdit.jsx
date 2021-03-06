@@ -4,10 +4,14 @@ import {
     Edit,
     SimpleForm,
     TextInput,
+	ArrayInput,
+	SimpleFormIterator,
     required,
     SaveButton,
     Toolbar,
 } from "react-admin";
+
+import {defaultStyle} from "../../../style";
 
 const UserEditToolbar = (props) => (
     <Toolbar {...props}>
@@ -16,28 +20,36 @@ const UserEditToolbar = (props) => (
 );
 
 const FooterContactEdit = (props) => {
-    const style = {width: "75%"};
-
     return (
         <Edit {...props}>
             <SimpleForm toolbar={<UserEditToolbar />}>
                 <TextInput
                     label="Email"
                     source="email"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                     multiline
                 />
-                <TextInput
-                    label="Телефон"
-                    source="phone"
-                    style={style}
+                <ArrayInput
+                    source="phones"
+                    label="Телефоны"
+                    style={defaultStyle}
                     validate={[required()]}
-                />
+                >
+                    <SimpleFormIterator>
+                        <TextInput
+                            label="Телефон"
+							source="phone"
+                            style={defaultStyle}
+                            validate={[required()]}
+                        />
+                    </SimpleFormIterator>
+                </ArrayInput>
+
                 <TextInput
                     label="Адрес"
                     source="adres"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                     multiline
                 />

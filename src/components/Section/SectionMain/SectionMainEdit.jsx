@@ -9,6 +9,8 @@ import {
     Toolbar,
 } from "react-admin";
 
+import {defaultStyle} from "../../../style";
+
 const UserEditToolbar = (props) => (
     <Toolbar {...props}>
         <SaveButton />
@@ -16,33 +18,31 @@ const UserEditToolbar = (props) => (
 );
 
 const SectionMainEdit = (props) => {
-    const style = {width: "75%"};
-
     return (
         <Edit {...props}>
             <SimpleForm toolbar={<UserEditToolbar />}>
                 <TextInput
                     label="Заголовок"
                     source="title"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
                 <TextInput
                     label="Описание"
                     source="description"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
                 <TextInput
                     label="Текст на кнопке"
                     source="buttonText"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
                 <TextInput
                     label="Ссылка на кнопке"
                     source="buttonHref"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
             </SimpleForm>

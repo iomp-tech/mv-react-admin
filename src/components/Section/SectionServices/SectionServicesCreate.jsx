@@ -7,22 +7,22 @@ import {
     required,
 } from "react-admin";
 
-const SectionServicesCreate = (props) => {
-    const style = {width: "75%"};
+import {defaultStyle} from "../../../style";
 
+const SectionServicesCreate = (props) => {
     return (
         <Create {...props} title='Новый блок в секции "Инфо о образовании"'>
             <SimpleForm>
                 <TextInput
                     label="Заголовок"
                     source="title"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
                 <TextInput
                     label="Описание"
                     source="description"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                     multiline
                 />
@@ -35,7 +35,7 @@ const SectionServicesCreate = (props) => {
                     ]}
                     optionValue="key"
                     optionText="title"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
             </SimpleForm>

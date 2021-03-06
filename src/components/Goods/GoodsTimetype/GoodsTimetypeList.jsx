@@ -1,7 +1,7 @@
 import React from "react";
 import {List, Datagrid, TextField, ChipField, EditButton} from "react-admin";
 
-const TimetypeGoodsList = (props) => {
+const GoodsTimetypeList = (props) => {
     return (
         <List {...props} pagination={false} title="Тип времени товаров">
             <Datagrid>
@@ -14,4 +14,4 @@ const TimetypeGoodsList = (props) => {
     );
 };
 
-export default TimetypeGoodsList;
+export default GoodsTimetypeList;

@@ -8,9 +8,9 @@ import {
     required,
 } from "react-admin";
 
-const GoodsCreate = (props) => {
-	const style = {width: "75%"};
+import {defaultStyle} from "../../style";
 
+const CategoriesCreate = (props) => {
     return (
         <Create {...props} title="Новая категория">
             <SimpleForm>
@@ -18,13 +18,13 @@ const GoodsCreate = (props) => {
                     source="title"
                     label="Имя категории"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
                 <TextInput
                     source="key"
                     label="Ключ категории для системы (Только англиский язык. Пример: psychology)"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
                 <ImageInput
                     source="thumb"
@@ -33,7 +33,7 @@ const GoodsCreate = (props) => {
                     accept="image/*"
                     placeholder={<p>Перетащите файл сюда</p>}
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 >
                     <ImageField source="src" />
                 </ImageInput>
@@ -42,4 +42,4 @@ const GoodsCreate = (props) => {
     );
 };
 
-export default GoodsCreate;
+export default CategoriesCreate;

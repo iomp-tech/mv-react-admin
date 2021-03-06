@@ -1,15 +1,10 @@
 import React from "react";
 
-import {
-    Create,
-    SimpleForm,
-    TextInput,
-    required,
-} from "react-admin";
+import {Create, SimpleForm, TextInput, required} from "react-admin";
 
-const TimetypeGoodsCreate = (props) => {
-	const style = {width: "75%"};
+import {defaultStyle} from "../../../style";
 
+const GoodsTimetypeCreate = (props) => {
     return (
         <Create {...props} title="Новый тип времени">
             <SimpleForm>
@@ -17,17 +12,17 @@ const TimetypeGoodsCreate = (props) => {
                     source="title"
                     label="Название"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
                 <TextInput
                     source="key"
                     label="Ключ"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
             </SimpleForm>
         </Create>
     );
-}
+};
 
-export default TimetypeGoodsCreate
+export default GoodsTimetypeCreate;

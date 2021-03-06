@@ -9,22 +9,22 @@ import {
     required,
 } from "react-admin";
 
+import {defaultStyle} from "../../../style";
+
 const FooterSocialEdit = (props) => {
-    const style = {width: "75%"};
-	
     return (
         <Edit {...props} title="Изменить соц.сеть">
             <SimpleForm>
                 <TextInput
                     label="Заголовок"
                     source="title"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
                 <TextInput
                     label="Ссылка"
                     source="href"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                     multiline
                 />
@@ -34,7 +34,7 @@ const FooterSocialEdit = (props) => {
                     maxSize="2000000"
                     accept="image/*"
                     placeholder={<p>Перетащите файл сюда</p>}
-                    style={style}
+                    style={defaultStyle}
                 >
                     <ImageField source="src" />
                 </ImageInput>

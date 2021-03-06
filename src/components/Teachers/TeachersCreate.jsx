@@ -12,9 +12,9 @@ import {
 } from "react-admin";
 import RichTextInput from "ra-input-rich-text";
 
-const TeachersCreate = (props) => {
-    const style = {width: "75%"};
+import {defaultStyle} from "../../style";
 
+const TeachersCreate = (props) => {
     return (
         <Create {...props} title="Новый преподаватель">
             <SimpleForm>
@@ -22,12 +22,12 @@ const TeachersCreate = (props) => {
                     source="name"
                     label="Имя и Фамилия преподавателя"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
                 <BooleanInput
                     label="Добавлять в главную секцию"
                     source="main"
-                    style={style}
+                    style={defaultStyle}
                 />
                 <FormDataConsumer>
                     {({formData}) =>
@@ -37,13 +37,13 @@ const TeachersCreate = (props) => {
                                     source="type"
                                     label="Должность"
                                     validate={[required()]}
-                                    style={style}
+                                    style={defaultStyle}
                                 />
                                 <RichTextInput
                                     source="description"
                                     label="Описание"
                                     validate={[required()]}
-                                    style={style}
+                                    style={defaultStyle}
                                 />
                             </>
                         )
@@ -55,8 +55,7 @@ const TeachersCreate = (props) => {
                     maxSize="2000000"
                     accept="image/*"
                     placeholder={<p>Перетащите файл сюда</p>}
-                    validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 >
                     <ImageField source="src" />
                 </ImageInput>

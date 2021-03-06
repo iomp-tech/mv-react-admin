@@ -3,39 +3,19 @@ import React from "react";
 import {
     List,
     Datagrid,
+    ReferenceArrayField,
+    ReferenceManyField,
+    SingleFieldList,
     TextField,
     SelectField,
     UrlField,
+    ChipField,
     ImageField,
     BooleanField,
     EditButton,
 } from "react-admin";
 
-import myDataProfider from "../.././myDataProvider";
-
 const TimetableList = (props) => {
-    const [categories, setCategories] = React.useState([]);
-    const [type, setType] = React.useState([]);
-
-    React.useEffect(() => {
-        myDataProfider
-            .getList("categories", {
-                pagination: {page: 1},
-                sort: {order: "ASC"},
-            })
-            .then(({data}) => {
-                setCategories(data);
-            });
-        myDataProfider
-            .getList("timetableType", {
-                pagination: {page: 1},
-                sort: {order: "ASC"},
-            })
-            .then(({data}) => {
-                setType(data);
-            });
-    }, []);
-
     return (
         <List {...props} pagination={false} title="Расписание">
             <Datagrid>
@@ -57,22 +37,42 @@ const TimetableList = (props) => {
                     source="visibility"
                     sortable={false}
                 />
-                <SelectField
+
+                <ReferenceArrayField
+                    label="Авторы"
+                    reference="teachers"
+                    source="auth"
+                    sortable={false}
+                >
+                    <SingleFieldList>
+                        <ChipField source="name" />
+                    </SingleFieldList>
+                </ReferenceArrayField>
+
+                <ReferenceManyField
                     label="Категория"
                     source="category"
-                    optionValue="key"
-                    optionText="title"
+                    reference="categories"
+                    target="key"
                     sortable={false}
-                    choices={categories}
-                />
-                <SelectField
+                >
+                    <SingleFieldList>
+                        <ChipField source="title" />
+                    </SingleFieldList>
+                </ReferenceManyField>
+
+                <ReferenceManyField
                     label="Тип"
                     source="type"
-                    optionValue="key"
-                    optionText="title"
+                    reference="timetableType"
+                    target="key"
                     sortable={false}
-                    choices={type}
-                />
+                >
+                    <SingleFieldList>
+                        <ChipField source="title" />
+                    </SingleFieldList>
+                </ReferenceManyField>
+
                 <BooleanField label="Авто" source="auto" sortable={false} />
                 <TextField
                     label="На сколько дней продлевается мероприятие"
@@ -97,7 +97,7 @@ const TimetableList = (props) => {
                     sortable={false}
                 />
                 <UrlField
-                    label="Url для ридеректа"
+                    label="Url Страницы"
                     source="url"
                     sortable={false}
                 />

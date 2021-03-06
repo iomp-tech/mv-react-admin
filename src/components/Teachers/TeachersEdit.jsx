@@ -14,9 +14,9 @@ import RichTextInput from "ra-input-rich-text";
 
 import {PreviewImage} from ".././";
 
-const TeachersEdit = (props) => {
-    const style = {width: "75%"};
+import {defaultStyle} from "../../style";
 
+const TeachersEdit = (props) => {
     return (
         <Edit {...props}>
             <SimpleForm>
@@ -24,12 +24,12 @@ const TeachersEdit = (props) => {
                     source="name"
                     label="Имя и Фамилия преподавателя"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
                 <BooleanInput
                     label="Добавлять в главную секцию"
                     source="main"
-                    style={style}
+                    style={defaultStyle}
                 />
                 <FormDataConsumer>
                     {({formData}) =>
@@ -39,13 +39,13 @@ const TeachersEdit = (props) => {
                                     source="type"
                                     label="Должность"
                                     validate={[required()]}
-                                    style={style}
+                                    style={defaultStyle}
                                 />
                                 <RichTextInput
                                     source="description"
                                     label="Описание"
                                     validate={[required()]}
-                                    style={style}
+                                    style={defaultStyle}
                                 />
                             </>
                         )
@@ -56,7 +56,7 @@ const TeachersEdit = (props) => {
                     label="Аватар"
                     accept="image/*"
                     placeholder={<p>Перетащите файл сюда</p>}
-                    style={style}
+                    style={defaultStyle}
                 >
                     <PreviewImage source="src" />
                 </ImageInput>

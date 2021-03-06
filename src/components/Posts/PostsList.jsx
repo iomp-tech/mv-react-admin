@@ -2,47 +2,17 @@ import React from "react";
 
 import {
     List,
-    Datagrid,
+	Datagrid,
+	SingleFieldList,
+    ReferenceManyField,
+    ReferenceArrayField,
     TextField,
     ImageField,
-    SelectField,
+    ChipField,
     EditButton,
 } from "react-admin";
 
-import myDataProfider from "../.././myDataProvider";
-
 const PostsList = (props) => {
-    const [categories, setCategories] = React.useState([]);
-    const [teachers, setTeachers] = React.useState([]);
-    const [postType, setPostType] = React.useState([]);
-
-    React.useEffect(() => {
-        myDataProfider
-            .getList("categories", {
-                pagination: {page: 1},
-                sort: {order: "ASC"},
-            })
-            .then(({data}) => {
-                setCategories(data);
-            });
-        myDataProfider
-            .getList("teachers", {
-                pagination: {page: 1},
-                sort: {order: "ASC"},
-            })
-            .then(({data}) => {
-                setTeachers(data);
-            });
-        myDataProfider
-            .getList("postType", {
-                pagination: {page: 1},
-                sort: {order: "ASC"},
-            })
-            .then(({data}) => {
-                setPostType(data);
-            });
-    }, []);
-
     return (
         <List {...props} pagination={false} title="Посты">
             <Datagrid>
@@ -52,30 +22,45 @@ const PostsList = (props) => {
                     source="thumb"
                     sortable={false}
                 />
-                <TextField label="Имя" source="title" sortable={false} />{" "}
+                <TextField label="Имя" source="title" sortable={false} />
                 <TextField
                     label="Краткое описание"
                     source="smallDescription"
                     sortable={false}
                 />
-                <TextField label="ID автора" source="auth" sortable={false} />
-                <TextField label="Дата публикации" source="date" />
-                <SelectField
-                    label="Категория"
-                    source="category"
-                    optionValue="key"
-                    optionText="title"
+                <ReferenceArrayField
+                    label="Авторы"
+                    reference="teachers"
+                    source="auth"
                     sortable={false}
-                    choices={categories}
-                />
-                <SelectField
+                >
+                    <SingleFieldList>
+                        <ChipField source="name" />
+                    </SingleFieldList>
+                </ReferenceArrayField>
+                <TextField label="Дата публикации" source="date" />
+                <ReferenceManyField
+                    label="Категория"
+                    reference="categories"
+                    source="category"
+                    target="key"
+                    sortable={false}
+                >
+                    <SingleFieldList>
+                        <ChipField source="title" />
+                    </SingleFieldList>
+                </ReferenceManyField>
+                <ReferenceManyField
                     label="Тип"
                     source="type"
-                    optionValue="key"
-                    optionText="title"
+                    reference="postType"
+                    target="key"
                     sortable={false}
-                    choices={postType}
-                />
+                >
+                    <SingleFieldList>
+                        <ChipField source="title" />
+                    </SingleFieldList>
+                </ReferenceManyField>
                 <EditButton />
             </Datagrid>
         </List>

@@ -2,22 +2,22 @@ import React from "react";
 
 import {Create, SimpleForm, TextInput, required} from "react-admin";
 
-const SectionAboutCreate = (props) => {
-    const style = {width: "75%"};
+import {defaultStyle} from "../../../style";
 
+const FooterMenuCreate = (props) => {
     return (
-        <Create {...props} title='Новый блок в секции "О нас"'>
+        <Create {...props} title="Новая ссылка в футере (подвале)">
             <SimpleForm>
                 <TextInput
                     label="Заголовок"
                     source="title"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
                 <TextInput
-                    label="Описание"
-                    source="subtitle"
-                    style={style}
+                    label="Ссылка"
+                    source="href"
+                    style={defaultStyle}
                     validate={[required()]}
                     multiline
                 />
@@ -26,4 +26,4 @@ const SectionAboutCreate = (props) => {
     );
 };
 
-export default SectionAboutCreate;
+export default FooterMenuCreate;

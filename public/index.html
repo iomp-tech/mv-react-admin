@@ -5,10 +5,7 @@
         <link rel="icon" href="%PUBLIC_URL%/favicon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <meta
-            name="description"
-            content="Админ панель IOMP"
-        />
+        <meta name="description" content="Админ панель IOMP" />
 
         <link
             rel="stylesheet"
@@ -21,6 +18,13 @@
         <title>Админ панель - IOMP</title>
 
         <style>
+            input[type="number"]::-webkit-inner-spin-button {
+                display: none;
+            }
+            input[type="number"] {
+                -moz-appearance: textfield;
+            }
+
             .MuiFormControl-marginNormal {
                 width: 75%;
             }

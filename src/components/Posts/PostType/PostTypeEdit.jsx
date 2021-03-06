@@ -2,9 +2,9 @@ import React from "react";
 
 import {Edit, SimpleForm, TextInput, required} from "react-admin";
 
-const PostTypeEdit = (props) => {
-    const style = {width: "75%"};
+import {defaultStyle} from "../../../style";
 
+const PostTypeEdit = (props) => {
     return (
         <Edit {...props}>
             <SimpleForm>
@@ -12,13 +12,13 @@ const PostTypeEdit = (props) => {
                     source="title"
                     label="Имя типа"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
                 <TextInput
                     source="key"
                     label="Ключ типа"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
             </SimpleForm>
         </Edit>

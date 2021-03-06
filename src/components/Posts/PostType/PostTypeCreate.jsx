@@ -2,10 +2,9 @@ import React from "react";
 
 import {Create, SimpleForm, TextInput, required} from "react-admin";
 
-const PostTypeCreate = (props) => {
+import { defaultStyle } from "../../../style";
 
-	const style = { width: "75%" };
-	
+const PostTypeCreate = (props) => {
     return (
         <Create {...props} title="Новый тип поста">
             <SimpleForm>
@@ -13,13 +12,13 @@ const PostTypeCreate = (props) => {
                     source="title"
                     label="Имя типа"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
                 <TextInput
                     source="key"
                     label="Ключ типа"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
             </SimpleForm>
         </Create>

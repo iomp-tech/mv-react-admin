@@ -9,6 +9,8 @@ import {
     SaveButton,
 } from "react-admin";
 
+import {defaultStyle} from "../../style";
+
 const UserEditToolbar = (props) => (
     <Toolbar {...props}>
         <SaveButton />
@@ -16,8 +18,6 @@ const UserEditToolbar = (props) => (
 );
 
 const FormSubcsribeEdit = (props) => {
-    const style = {width: "75%"};
-
     return (
         <Edit {...props}>
             <SimpleForm toolbar={<UserEditToolbar />}>
@@ -25,25 +25,25 @@ const FormSubcsribeEdit = (props) => {
                     label="ID группы подписчиков на которую надо подписать"
                     source="id_awo"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
                 <TextInput
                     source="action"
                     label="Введите значения атрибута 'action' в теге '<form>'"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
                 <TextInput
                     source="formId"
                     label="Введите значения атрибута 'value' в теге '<input>' с 'name=formId'"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
                 <TextInput
                     source="formVc"
                     label="Введите значения атрибута 'value' в теге '<input>' с 'name=formVc'"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
             </SimpleForm>
         </Edit>

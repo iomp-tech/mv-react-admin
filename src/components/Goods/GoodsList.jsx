@@ -2,49 +2,18 @@ import React from "react";
 import {
     List,
     Datagrid,
+    ReferenceManyField,
+    ReferenceArrayField,
+    SingleFieldList,
+    ChipField,
     TextField,
     UrlField,
-	BooleanField,
-	SelectField,
+    BooleanField,
     ImageField,
     EditButton,
 } from "react-admin";
 
-import myDataProfider from "../.././myDataProvider";
-
 const GoodsList = (props) => {
-    const [categories, setCategories] = React.useState([]);
-    const [timetype, setTimetype] = React.useState([]);
-    const [type, setType] = React.useState([]);
-
-    React.useEffect(() => {
-        myDataProfider
-            .getList("categories", {
-                pagination: {page: 1},
-                sort: {order: "ASC"},
-            })
-            .then(({data}) => {
-                setCategories(data);
-            });
-
-        myDataProfider
-            .getList("goodsTimetype", {
-                pagination: {page: 1},
-                sort: {order: "ASC"},
-            })
-            .then(({data}) => {
-                setTimetype(data);
-            });
-        myDataProfider
-            .getList("goodsType", {
-                pagination: {page: 1},
-                sort: {order: "ASC"},
-            })
-            .then(({data}) => {
-                setType(data);
-            });
-    }, []);
-
     return (
         <List {...props} pagination={false} title="Товары">
             <Datagrid>
@@ -60,36 +29,59 @@ const GoodsList = (props) => {
                     source="href"
                     sortable={false}
                 />
-                <SelectField
+                <ReferenceManyField
                     label="Категория"
+                    reference="categories"
                     source="category"
-                    optionValue="key"
-                    optionText="title"
+                    target="key"
                     sortable={false}
-                    choices={categories}
-                />
-                <SelectField
+                >
+                    <SingleFieldList>
+                        <ChipField source="title" />
+                    </SingleFieldList>
+                </ReferenceManyField>
+
+                <ReferenceManyField
                     label="Тип"
                     source="type"
-                    optionValue="key"
-                    optionText="title"
+                    reference="goodsType"
+                    target="key"
                     sortable={false}
-                    choices={type}
-                />
+                >
+                    <SingleFieldList>
+                        <ChipField source="title" />
+                    </SingleFieldList>
+                </ReferenceManyField>
+
                 <TextField
                     label="Время прохождения"
                     source="time"
                     sortable={false}
                 />
-                <SelectField
+
+                <ReferenceManyField
                     label="Длина прохождения"
                     source="timeType"
-                    optionValue="key"
-                    optionText="title"
+                    reference="goodsTimetype"
+                    target="key"
                     sortable={false}
-                    choices={timetype}
-                />
-                <TextField label="ID автора" source="auth" sortable={false} />
+                >
+                    <SingleFieldList>
+                        <ChipField source="title" />
+                    </SingleFieldList>
+                </ReferenceManyField>
+
+                <ReferenceArrayField
+                    label="Авторы"
+                    reference="teachers"
+                    source="auth"
+                    sortable={false}
+                >
+                    <SingleFieldList>
+                        <ChipField source="name" />
+                    </SingleFieldList>
+                </ReferenceArrayField>
+
                 <TextField label="Скидка" source="sale" sortable={false} />
                 <TextField
                     label="Цена без скидки"

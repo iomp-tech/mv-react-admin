@@ -9,13 +9,13 @@ export { default as GoodsList } from './Goods/GoodsList';
 export { default as GoodsCreate } from './Goods/GoodsCreate';
 export { default as GoodsEdit } from './Goods/GoodsEdit';
 // goods - timetype
-export { default as TimetypeGoodsList } from './Goods/TimetypeGoods/TimetypeGoodsList';
-export { default as TimetypeGoodsCreate } from './Goods/TimetypeGoods/TimetypeGoodsCreate';
-export { default as TimetypeGoodsEdit } from './Goods/TimetypeGoods/TimetypeGoodsEdit';
+export { default as GoodsTimetypeList } from './Goods/GoodsTimetype/GoodsTimetypeList';
+export { default as GoodsTimetypeCreate } from './Goods/GoodsTimetype/GoodsTimetypeCreate';
+export { default as GoodsTimetypeEdit } from './Goods/GoodsTimetype/GoodsTimetypeEdit';
 // goods - type
-export { default as GoodsTypeList } from './Goods/TypeGoods/GoodsTypeList';
-export { default as GoodsTypeCreate } from './Goods/TypeGoods/GoodsTypeCreate';
-export { default as GoodsTypeEdit } from './Goods/TypeGoods/GoodsTypeEdit';
+export { default as GoodsTypeList } from './Goods/GoodsType/GoodsTypeList';
+export { default as GoodsTypeCreate } from './Goods/GoodsType/GoodsTypeCreate';
+export { default as GoodsTypeEdit } from './Goods/GoodsType/GoodsTypeEdit';
 
 // categories
 export { default as CategoriesList } from './Categories/CategoriesList';
@@ -23,16 +23,16 @@ export { default as CategoriesCreate } from './Categories/CategoriesCreate';
 export { default as CategoriesEdit } from './Categories/CategoriesEdit';
 
 // section
-export { default as SectionMainList } from './Section/SectionMainList';
-export { default as SectionMainEdit } from './Section/SectionMainEdit';
+export { default as SectionMainList } from './Section/SectionMain/SectionMainList';
+export { default as SectionMainEdit } from './Section/SectionMain/SectionMainEdit';
 
-export { default as SectionServicesList } from './Section/SectionServicesList';
-export { default as SectionServicesCreate } from './Section/SectionServicesCreate';
-export { default as SectionServicesEdit } from './Section/SectionServicesEdit';
+export { default as SectionServicesList } from './Section/SectionServices/SectionServicesList';
+export { default as SectionServicesCreate } from './Section/SectionServices/SectionServicesCreate';
+export { default as SectionServicesEdit } from './Section/SectionServices/SectionServicesEdit';
 
-export { default as SectionAboutList } from './Section/SectionAboutList';
-export { default as SectionAboutCreate } from './Section/SectionAboutCreate';
-export { default as SectionAboutEdit } from './Section/SectionAboutEdit';
+export { default as SectionAboutList } from './Section/SectionAbout/SectionAboutList';
+export { default as SectionAboutCreate } from './Section/SectionAbout/SectionAboutCreate';
+export { default as SectionAboutEdit } from './Section/SectionAbout/SectionAboutEdit';
 
 //teachers
 export { default as TeachersList } from './Teachers/TeachersList';
@@ -40,34 +40,38 @@ export { default as TeachersCreate } from './Teachers/TeachersCreate';
 export { default as TeachersEdit } from './Teachers/TeachersEdit';
 
 // footer
-export { default as FooterMenuList } from './Footer/FooterMenuList';
-export { default as FooterMenuCreate } from './Footer/FooterMenuCreate';
-export { default as FooterMenuEdit } from './Footer/FooterMenuEdit';
-// goods - contact
-export { default as FooterContactList } from './Footer/FooterContactList';
-export { default as FooterContactEdit } from './Footer/FooterContactEdit';
-// goods - social
-export { default as FooterSocialList } from './Footer/FooterSocialList';
-export { default as FooterSocialCreate } from './Footer/FooterSocialCreate';
-export { default as FooterSocialEdit } from './Footer/FooterSocialEdit';
+export { default as FooterMenuList } from './Footer/FooterMenu/FooterMenuList';
+export { default as FooterMenuCreate } from './Footer/FooterMenu/FooterMenuCreate';
+export { default as FooterMenuEdit } from './Footer/FooterMenu/FooterMenuEdit';
+// footer - contact
+export { default as FooterContactList } from './Footer/FooterContact/FooterContactList';
+export { default as FooterContactEdit } from './Footer/FooterContact/FooterContactEdit';
+// footer - social
+export { default as FooterSocialList } from './Footer/FooterSocial/FooterSocialList';
+export { default as FooterSocialCreate } from './Footer/FooterSocial/FooterSocialCreate';
+export { default as FooterSocialEdit } from './Footer/FooterSocial/FooterSocialEdit';
+// footer - legal
+export { default as FooterLegalList } from './Footer/FooterLegal/FooterLegalList';
+export { default as FooterLegalCreate } from './Footer/FooterLegal/FooterLegalCreate';
+export { default as FooterLegalEdit } from './Footer/FooterLegal/FooterLegalEdit';
 
 // posts
 export { default as PostsList } from './Posts/PostsList';
 export { default as PostsCreate } from './Posts/PostsCreate';
 export { default as PostsEdit } from './Posts/PostsEdit';
 // post type
-export { default as PostTypeList } from './Posts/PostTypeList';
-export { default as PostTypeCreate } from './Posts/PostTypeCreate';
-export { default as PostTypeEdit } from './Posts/PostTypeEdit';
+export { default as PostTypeList } from './Posts/PostType/PostTypeList';
+export { default as PostTypeCreate } from './Posts/PostType/PostTypeCreate';
+export { default as PostTypeEdit } from './Posts/PostType/PostTypeEdit';
 
 // timetable
 export { default as TimetableList } from './Timetable/TimetableList';
 export { default as TimetableCreate } from './Timetable/TimetableCreate';
 export { default as TimetableEdit } from './Timetable/TimetableEdit';
 // timetable type
-export { default as TimetableTypeList } from './Timetable/TimetableTypeList';
-export { default as TimetableTypeCreate } from './Timetable/TimetableTypeCreate';
-export { default as TimetableTypeEdit } from './Timetable/TimetableTypeEdit';
+export { default as TimetableTypeList } from './Timetable/TimetableType/TimetableTypeList';
+export { default as TimetableTypeCreate } from './Timetable/TimetableType/TimetableTypeCreate';
+export { default as TimetableTypeEdit } from './Timetable/TimetableType/TimetableTypeEdit';
 
 // formSubcsribeList
 export { default as FormSubcsribeList } from './FormSubcsribe/FormSubcsribeList';

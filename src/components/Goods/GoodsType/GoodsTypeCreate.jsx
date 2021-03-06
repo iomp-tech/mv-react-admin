@@ -1,28 +1,33 @@
 import React from "react";
 
-import {Edit, SimpleForm, TextInput, required} from "react-admin";
+import {
+    Create,
+    SimpleForm,
+    TextInput,
+    required,
+} from "react-admin";
 
-const TimetableTypeEdit = (props) => {
-	const style = {width: "75%"};
+import {defaultStyle} from "../../../style";
 
+const GoodsTypeCreate = (props) => {
     return (
-        <Edit {...props}>
+        <Create {...props} title="Новый тип товара">
             <SimpleForm>
                 <TextInput
                     source="title"
                     label="Имя"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
                 <TextInput
                     source="key"
                     label="Ключ"
                     validate={[required()]}
-                    style={style}
+                    style={defaultStyle}
                 />
             </SimpleForm>
-        </Edit>
+        </Create>
     );
 };
 
-export default TimetableTypeEdit;
+export default GoodsTypeCreate;

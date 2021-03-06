@@ -2,22 +2,22 @@ import React from "react";
 
 import {Edit, SimpleForm, TextInput, SelectInput, required} from "react-admin";
 
-const SectionServicesEdit = (props) => {
-    const style = {width: "75%"};
+import {defaultStyle} from "../../../style";
 
+const SectionServicesEdit = (props) => {
     return (
         <Edit {...props}>
             <SimpleForm>
                 <TextInput
                     label="Заголовок"
                     source="title"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
                 <TextInput
                     label="Описание"
                     source="description"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                     multiline
                 />
@@ -30,7 +30,7 @@ const SectionServicesEdit = (props) => {
                     ]}
                     optionValue="key"
                     optionText="title"
-                    style={style}
+                    style={defaultStyle}
                     validate={[required()]}
                 />
             </SimpleForm>
