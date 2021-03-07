@@ -320,15 +320,29 @@ const TimetableCreate = (props) => {
                         }
                     </FormDataConsumer>
 
-                    <TextInput
-                        source="url"
-                        label="Ссылка на Лендинг страницу"
-                        style={defaultStyle}
-                    />
+                    <div style={{display: "flex"}}>
+                        <p
+                            style={{
+                                fontSize: "18px",
+                                fontFamily: "sans-serif",
+                                paddingTop: "7px",
+                                paddingRight: "15px",
+                                color: "#ccc",
+                            }}
+                        >
+                            http://iomp.ru/timetable/pages/
+                        </p>
+
+                        <TextInput
+                            source="url"
+                            label="Ссылка на Лендинг страницу"
+                            style={defaultStyle}
+                        />
+                    </div>
 
                     <ArrayInput
                         source="page"
-                        label="Лендинг товара"
+                        label="Лендинг мероприятия"
                         style={defaultStyle}
                     >
                         <SimpleFormIterator>
@@ -765,18 +779,25 @@ const TimetableCreate = (props) => {
                                                         </>
                                                     ) : (
                                                         <>
-                                                            <TextInput
-                                                                source={getSource(
-                                                                    "block_id_awo"
-                                                                )}
-                                                                label="ID товара на АвтоВебОфис"
-                                                                validate={[
-                                                                    required(),
-                                                                ]}
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
+                                                            {goods.length ? (
+                                                                <SelectInput
+                                                                    label="Товары"
+                                                                    validate={[
+                                                                        required(),
+                                                                    ]}
+                                                                    optionText="title"
+                                                                    optionValue="id"
+                                                                    source={getSource(
+                                                                        "good"
+                                                                    )}
+                                                                    choices={
+                                                                        goods
+                                                                    }
+                                                                    style={
+                                                                        defaultStyle
+                                                                    }
+                                                                />
+                                                            ) : null}
                                                             <TextInput
                                                                 source={getSource(
                                                                     "blockTitle"

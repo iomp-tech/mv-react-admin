@@ -59,16 +59,16 @@ const GoodsCreate = (props) => {
             })
             .then(({data}) => {
                 setTeachers(data);
-			});
-		 myDataProfider
-             .getList("teachers", {
-                 pagination: {page: 1},
-                 sort: {order: "ASC"},
-                 filter: {main: true},
-             })
-             .then(({data}) => {
-                 setTeachersSection(data);
-             });
+            });
+        myDataProfider
+            .getList("teachers", {
+                pagination: {page: 1},
+                sort: {order: "ASC"},
+                filter: {main: true},
+            })
+            .then(({data}) => {
+                setTeachersSection(data);
+            });
         myDataProfider
             .getList("goodsType", {
                 pagination: {page: 1},
@@ -253,11 +253,25 @@ const GoodsCreate = (props) => {
                         <ImageField source="src" />
                     </ImageInput>
 
-                    <TextInput
-                        source="url"
-                        label="Ссылка на Лендинг страницу"
-                        style={defaultStyle}
-                    />
+                    <div style={{display: "flex"}}>
+                        <p
+                            style={{
+                                fontSize: "18px",
+                                fontFamily: "sans-serif",
+                                paddingTop: "7px",
+                                paddingRight: "15px",
+                                color: "#ccc",
+                            }}
+                        >
+                            http://iomp.ru/shop/pages/
+                        </p>
+
+                        <TextInput
+                            source="url"
+                            label="Ссылка на Лендинг страницу"
+                            style={defaultStyle}
+                        />
+                    </div>
 
                     <ArrayInput
                         source="page"
@@ -573,6 +587,14 @@ const GoodsCreate = (props) => {
                                             {scopedFormData.type ===
                                             "composition-product" ? (
                                                 <>
+                                                    <TextInput
+                                                        source={getSource(
+                                                            "title"
+                                                        )}
+                                                        label="Заголовок"
+                                                        validate={[required()]}
+                                                        style={arrayInputStyle}
+                                                    />
                                                     <ArrayInput
                                                         source={getSource(
                                                             "modules"
@@ -698,18 +720,25 @@ const GoodsCreate = (props) => {
                                                         </>
                                                     ) : (
                                                         <>
-                                                            <TextInput
-                                                                source={getSource(
-                                                                    "block_id_awo"
-                                                                )}
-                                                                label="ID товара на АвтоВебОфис"
-                                                                validate={[
-                                                                    required(),
-                                                                ]}
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
+                                                            {goods.length ? (
+                                                                <SelectInput
+                                                                    label="Товары"
+                                                                    validate={[
+                                                                        required(),
+                                                                    ]}
+                                                                    optionText="title"
+                                                                    optionValue="id"
+                                                                    source={getSource(
+                                                                        "good"
+                                                                    )}
+                                                                    choices={
+                                                                        goods
+                                                                    }
+                                                                    style={
+                                                                        defaultStyle
+                                                                    }
+                                                                />
+                                                            ) : null}
                                                             <TextInput
                                                                 source={getSource(
                                                                     "blockTitle"
@@ -785,7 +814,6 @@ const GoodsCreate = (props) => {
                                                             "title"
                                                         )}
                                                         label="Заголовок"
-                                                        validate={[required()]}
                                                         style={arrayInputStyle}
                                                     />
                                                     <ArrayInput
@@ -827,7 +855,6 @@ const GoodsCreate = (props) => {
                                                             "title"
                                                         )}
                                                         label="Заголовок"
-                                                        validate={[required()]}
                                                         style={arrayInputStyle}
                                                     />
                                                     <ArrayInput
