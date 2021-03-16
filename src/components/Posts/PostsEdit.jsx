@@ -16,7 +16,7 @@ import {
 
 import RichTextInput from "ra-input-rich-text";
 
-import { PreviewImage } from ".././";
+import {PreviewImage} from ".././";
 
 import {defaultStyle, arrayInputStyle} from "../../style";
 
@@ -141,6 +141,19 @@ const PostsEdit = (props) => {
                         </ImageInput>
                     </SimpleFormIterator>
                 </ArrayInput>
+
+                <TextInput
+                    label="Произвольный JavaScript код"
+                    source="postPageJs"
+                    style={defaultStyle}
+                    multiline
+                />
+                <TextInput
+                    label="Теги HTML"
+                    source="postPageHtml"
+                    style={defaultStyle}
+                    multiline
+                />
             </SimpleForm>
         </Edit>
     );

@@ -320,6 +320,19 @@ const TimetableCreate = (props) => {
                         }
                     </FormDataConsumer>
 
+                    <TextInput
+                        label="Произвольный JavaScript код"
+                        source="timetalbePageJs"
+                        style={defaultStyle}
+                        multiline
+                    />
+                    <TextInput
+                        label="Теги HTML"
+                        source="timetablePageHtml"
+                        style={defaultStyle}
+                        multiline
+                    />
+
                     <div style={{display: "flex"}}>
                         <p
                             style={{
@@ -364,6 +377,14 @@ const TimetableCreate = (props) => {
                                                 <>
                                                     <TextInput
                                                         source={getSource(
+                                                            "subtitle"
+                                                        )}
+                                                        label="Надзаголовок"
+                                                        validate={[required()]}
+                                                        style={arrayInputStyle}
+                                                    />
+                                                    <TextInput
+                                                        source={getSource(
                                                             "title"
                                                         )}
                                                         label="Оффер"
@@ -387,8 +408,17 @@ const TimetableCreate = (props) => {
                                                     />
                                                 </>
                                             ) : null}
+
                                             {scopedFormData.type === "main2" ? (
                                                 <>
+                                                    <TextInput
+                                                        source={getSource(
+                                                            "subtitle"
+                                                        )}
+                                                        label="Надзаголовок"
+                                                        validate={[required()]}
+                                                        style={arrayInputStyle}
+                                                    />
                                                     <TextInput
                                                         source={getSource(
                                                             "title"
@@ -404,112 +434,6 @@ const TimetableCreate = (props) => {
                                                         label="Описание"
                                                         style={arrayInputStyle}
                                                     />
-                                                    <TextInput
-                                                        source={getSource(
-                                                            "main2_id_awo"
-                                                        )}
-                                                        label="ID группы на АвтоВебОфис"
-                                                        validate={[required()]}
-                                                        style={arrayInputStyle}
-                                                    />
-                                                    <TextInput
-                                                        source={getSource(
-                                                            "action"
-                                                        )}
-                                                        label="Введите значения атрибута 'action' в теге '<form>'"
-                                                        validate={[required()]}
-                                                        style={arrayInputStyle}
-                                                    />
-                                                    <TextInput
-                                                        source={getSource(
-                                                            "formId"
-                                                        )}
-                                                        label="Введите значения атрибута 'value' в теге '<input>' с 'name=formId'"
-                                                        validate={[required()]}
-                                                        style={arrayInputStyle}
-                                                    />
-                                                    <TextInput
-                                                        source={getSource(
-                                                            "formVc"
-                                                        )}
-                                                        label="Введите значения атрибута 'value' в теге '<input>' с 'name=formVc'"
-                                                        validate={[required()]}
-                                                        style={arrayInputStyle}
-                                                    />
-                                                    <BooleanInput
-                                                        label="Диапазон"
-                                                        source={getSource(
-                                                            "range"
-                                                        )}
-                                                        style={arrayInputStyle}
-                                                    />
-                                                    {scopedFormData.range ? (
-                                                        <>
-                                                            <DateTimeInput
-                                                                options={{
-                                                                    inputVariant:
-                                                                        "outlined",
-                                                                    format:
-                                                                        "yyyy-MM-dd, HH:mm",
-                                                                }}
-                                                                source={getSource(
-                                                                    "minDate"
-                                                                )}
-                                                                value={
-                                                                    selectedDate
-                                                                }
-                                                                onChange={
-                                                                    handleDateChange
-                                                                }
-                                                                label="С"
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
-                                                            <DateTimeInput
-                                                                options={{
-                                                                    inputVariant:
-                                                                        "outlined",
-                                                                    format:
-                                                                        "yyyy-MM-dd, HH:mm",
-                                                                }}
-                                                                source={getSource(
-                                                                    "maxDate"
-                                                                )}
-                                                                value={
-                                                                    selectedDate
-                                                                }
-                                                                onChange={
-                                                                    handleDateChange
-                                                                }
-                                                                label="До"
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
-                                                        </>
-                                                    ) : (
-                                                        <DateTimeInput
-                                                            options={{
-                                                                inputVariant:
-                                                                    "outlined",
-                                                                format:
-                                                                    "yyyy-MM-dd, HH:mm",
-                                                                clearable: true,
-                                                            }}
-                                                            source={getSource(
-                                                                "date"
-                                                            )}
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            label="Дата и время проведения"
-                                                            style={
-                                                                arrayInputStyle
-                                                            }
-                                                        />
-                                                    )}
                                                 </>
                                             ) : null}
 
@@ -654,6 +578,14 @@ const TimetableCreate = (props) => {
                                             {scopedFormData.type ===
                                             "composition-product" ? (
                                                 <>
+                                                    <TextInput
+                                                        source={getSource(
+                                                            "title"
+                                                        )}
+                                                        label="Заголовок"
+                                                        validate={[required()]}
+                                                        style={arrayInputStyle}
+                                                    />
                                                     <ArrayInput
                                                         source={getSource(
                                                             "modules"
@@ -684,6 +616,7 @@ const TimetableCreate = (props) => {
                                                                 }
                                                                 multiline
                                                             />
+
                                                             <ArrayInput
                                                                 source="items"
                                                                 label="Список"
@@ -718,121 +651,75 @@ const TimetableCreate = (props) => {
                                                                     />
                                                                 </SimpleFormIterator>
                                                             </ArrayInput>
+
+                                                            {goods.length ? (
+                                                                <SelectInput
+                                                                    label="Товар модуля"
+                                                                    validate={[
+                                                                        required(),
+                                                                    ]}
+                                                                    optionText="title"
+                                                                    optionValue="id"
+                                                                    source="goodModule"
+                                                                    choices={
+                                                                        goods
+                                                                    }
+                                                                    style={
+                                                                        arrayInputStyle
+                                                                    }
+                                                                />
+                                                            ) : null}
+
+                                                            <BooleanInput
+                                                                label="Акция"
+                                                                source="stockBoolean"
+                                                            />
+
+                                                            {goods.length ? (
+                                                                <SelectInput
+                                                                    label="Товар акции"
+                                                                    optionText="title"
+                                                                    optionValue="id"
+                                                                    source="goodModuleStock"
+                                                                    choices={
+                                                                        goods
+                                                                    }
+                                                                    style={
+                                                                        arrayInputStyle
+                                                                    }
+                                                                />
+                                                            ) : null}
+                                                            <TextInput
+                                                                source="titleStock"
+                                                                label="Заголовок"
+                                                                style={
+                                                                    arrayInputStyle
+                                                                }
+                                                            />
+
+                                                            <TextInput
+                                                                source="descriptionStock"
+                                                                label="Описание"
+                                                                style={
+                                                                    arrayInputStyle
+                                                                }
+                                                            />
+                                                            <TextInput
+                                                                source="btnTextStock"
+                                                                label="Кнопка"
+                                                                style={
+                                                                    arrayInputStyle
+                                                                }
+                                                            />
                                                         </SimpleFormIterator>
                                                     </ArrayInput>
+
                                                     <BooleanInput
                                                         label="Форма"
                                                         source={getSource(
                                                             "formBoolean"
                                                         )}
                                                     />
-                                                    {scopedFormData.formBoolean ? (
-                                                        <>
-                                                            <TextInput
-                                                                source={getSource(
-                                                                    "form_id_awo"
-                                                                )}
-                                                                label="ID группы на АвтоВебОфис"
-                                                                validate={[
-                                                                    required(),
-                                                                ]}
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
-                                                            <TextInput
-                                                                source={getSource(
-                                                                    "action"
-                                                                )}
-                                                                label="Введите значения атрибута 'action' в теге '<form>'"
-                                                                validate={[
-                                                                    required(),
-                                                                ]}
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
-                                                            <TextInput
-                                                                source={getSource(
-                                                                    "formId"
-                                                                )}
-                                                                label="Введите значения атрибута 'value' в теге '<input>' с 'name=formId'"
-                                                                validate={[
-                                                                    required(),
-                                                                ]}
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
-                                                            <TextInput
-                                                                source={getSource(
-                                                                    "formVc"
-                                                                )}
-                                                                label="Введите значения атрибута 'value' в теге '<input>' с 'name=formVc'"
-                                                                validate={[
-                                                                    required(),
-                                                                ]}
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
-                                                        </>
-                                                    ) : (
-                                                        <>
-                                                            {goods.length ? (
-                                                                <SelectInput
-                                                                    label="Товары"
-                                                                    validate={[
-                                                                        required(),
-                                                                    ]}
-                                                                    optionText="title"
-                                                                    optionValue="id"
-                                                                    source={getSource(
-                                                                        "good"
-                                                                    )}
-                                                                    choices={
-                                                                        goods
-                                                                    }
-                                                                    style={
-                                                                        defaultStyle
-                                                                    }
-                                                                />
-                                                            ) : null}
-                                                            <TextInput
-                                                                source={getSource(
-                                                                    "blockTitle"
-                                                                )}
-                                                                label="Заголовок"
-                                                                validate={[
-                                                                    required(),
-                                                                ]}
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
-                                                            <TextInput
-                                                                source={getSource(
-                                                                    "blockDescription"
-                                                                )}
-                                                                label="Описание"
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
-                                                            <TextInput
-                                                                source={getSource(
-                                                                    "blockBtnText"
-                                                                )}
-                                                                label="Кнопка"
-                                                                validate={[
-                                                                    required(),
-                                                                ]}
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
-                                                        </>
-                                                    )}
                                                 </>
                                             ) : null}
 

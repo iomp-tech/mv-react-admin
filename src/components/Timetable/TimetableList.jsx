@@ -7,17 +7,29 @@ import {
     ReferenceManyField,
     SingleFieldList,
     TextField,
-    SelectField,
+    Filter,
     UrlField,
     ChipField,
     ImageField,
-    BooleanField,
+	BooleanField,
+	TextInput,
     EditButton,
 } from "react-admin";
 
+const TimetableFilter = (props) => (
+    <Filter {...props}>
+        <TextInput label="Ключ" source="key" alwaysOn />
+    </Filter>
+);
+
 const TimetableList = (props) => {
     return (
-        <List {...props} pagination={false} title="Расписание">
+        <List
+            {...props}
+            pagination={false}
+            title="Расписание"
+            filters={<TimetableFilter />}
+        >
             <Datagrid>
                 <TextField label="ID" source="id" sortable={false} />
                 <TextField
@@ -32,6 +44,11 @@ const TimetableList = (props) => {
                 />
                 <TextField label="Имя" source="title" sortable={false} />
                 <TextField label="Ключ" source="key" sortable={false} />
+                <UrlField
+                    label="Ссылка на лендинг страницу"
+                    source="url"
+                    sortable={false}
+                />
                 <BooleanField
                     label="Видимо ли мероприятие?"
                     source="visibility"
@@ -96,11 +113,7 @@ const TimetableList = (props) => {
                     source="dateDelete"
                     sortable={false}
                 />
-                <UrlField
-                    label="Url Страницы"
-                    source="url"
-                    sortable={false}
-                />
+                <UrlField label="Url Страницы" source="url" sortable={false} />
                 <BooleanField
                     label="Добавлять в слайдер"
                     source="slider"

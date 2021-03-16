@@ -29,6 +29,11 @@ const GoodsList = (props) => {
                     source="href"
                     sortable={false}
                 />
+                <UrlField
+                    label="Ссылка на лендинг страницу"
+                    source="url"
+                    sortable={false}
+                />
                 <ReferenceManyField
                     label="Категория"
                     reference="categories"

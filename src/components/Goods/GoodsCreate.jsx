@@ -253,6 +253,19 @@ const GoodsCreate = (props) => {
                         <ImageField source="src" />
                     </ImageInput>
 
+                    <TextInput
+                        label="Произвольный JavaScript код"
+                        source="shopPageJs"
+                        style={defaultStyle}
+                        multiline
+                    />
+                    <TextInput
+                        label="Теги HTML"
+                        source="shopPageHtml"
+                        style={defaultStyle}
+                        multiline
+                    />
+
                     <div style={{display: "flex"}}>
                         <p
                             style={{
@@ -297,6 +310,14 @@ const GoodsCreate = (props) => {
                                                 <>
                                                     <TextInput
                                                         source={getSource(
+                                                            "subtitle"
+                                                        )}
+                                                        label="Надзаголовок"
+                                                        validate={[required()]}
+                                                        style={arrayInputStyle}
+                                                    />
+                                                    <TextInput
+                                                        source={getSource(
                                                             "title"
                                                         )}
                                                         label="Оффер"
@@ -320,8 +341,17 @@ const GoodsCreate = (props) => {
                                                     />
                                                 </>
                                             ) : null}
+
                                             {scopedFormData.type === "main2" ? (
                                                 <>
+                                                    <TextInput
+                                                        source={getSource(
+                                                            "subtitle"
+                                                        )}
+                                                        label="Надзаголовок"
+                                                        validate={[required()]}
+                                                        style={arrayInputStyle}
+                                                    />
                                                     <TextInput
                                                         source={getSource(
                                                             "title"
@@ -369,6 +399,28 @@ const GoodsCreate = (props) => {
                                                         validate={[required()]}
                                                         style={arrayInputStyle}
                                                     />
+                                                    <BooleanInput
+                                                        label="Авто"
+                                                        source={getSource(
+                                                            "auto"
+                                                        )}
+                                                        style={defaultStyle}
+                                                    />
+                                                    {scopedFormData.auto && (
+                                                        <TextInput
+                                                            source={getSource(
+                                                                "day"
+                                                            )}
+                                                            label="На сколько дней продлевается мероприятие"
+                                                            validate={[
+                                                                required(),
+                                                            ]}
+                                                            style={
+                                                                arrayInputStyle
+                                                            }
+                                                            type="number"
+                                                        />
+                                                    )}
                                                     <BooleanInput
                                                         label="Диапазон"
                                                         source={getSource(
@@ -625,6 +677,66 @@ const GoodsCreate = (props) => {
                                                                 }
                                                                 multiline
                                                             />
+                                                            {goods.length ? (
+                                                                <SelectInput
+                                                                    label="Товар модуля"
+                                                                    validate={[
+                                                                        required(),
+                                                                    ]}
+                                                                    optionText="title"
+                                                                    optionValue="id"
+                                                                    source="goodModule"
+                                                                    choices={
+                                                                        goods
+                                                                    }
+                                                                    style={
+                                                                        arrayInputStyle
+                                                                    }
+                                                                />
+                                                            ) : null}
+
+                                                            <BooleanInput
+                                                                label="Акция"
+                                                                source="stockBoolean"
+                                                            />
+
+                                                            {goods.length ? (
+                                                                <SelectInput
+                                                                    label="Товар акции"
+                                                                    optionText="title"
+                                                                    optionValue="id"
+                                                                    source="goodModuleStock"
+                                                                    choices={
+                                                                        goods
+                                                                    }
+                                                                    style={
+                                                                        arrayInputStyle
+                                                                    }
+                                                                />
+                                                            ) : null}
+                                                            <TextInput
+                                                                source="titleStock"
+                                                                label="Заголовок"
+                                                                style={
+                                                                    arrayInputStyle
+                                                                }
+                                                            />
+
+                                                            <TextInput
+                                                                source="descriptionStock"
+                                                                label="Описание"
+                                                                style={
+                                                                    arrayInputStyle
+                                                                }
+                                                            />
+                                                            <TextInput
+                                                                source="btnTextStock"
+                                                                label="Кнопка"
+                                                                style={
+                                                                    arrayInputStyle
+                                                                }
+                                                            />
+
                                                             <ArrayInput
                                                                 source="items"
                                                                 label="Список"
@@ -718,62 +830,7 @@ const GoodsCreate = (props) => {
                                                                 }
                                                             />
                                                         </>
-                                                    ) : (
-                                                        <>
-                                                            {goods.length ? (
-                                                                <SelectInput
-                                                                    label="Товары"
-                                                                    validate={[
-                                                                        required(),
-                                                                    ]}
-                                                                    optionText="title"
-                                                                    optionValue="id"
-                                                                    source={getSource(
-                                                                        "good"
-                                                                    )}
-                                                                    choices={
-                                                                        goods
-                                                                    }
-                                                                    style={
-                                                                        defaultStyle
-                                                                    }
-                                                                />
-                                                            ) : null}
-                                                            <TextInput
-                                                                source={getSource(
-                                                                    "blockTitle"
-                                                                )}
-                                                                label="Заголовок"
-                                                                validate={[
-                                                                    required(),
-                                                                ]}
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
-                                                            <TextInput
-                                                                source={getSource(
-                                                                    "blockDescription"
-                                                                )}
-                                                                label="Описание"
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
-                                                            <TextInput
-                                                                source={getSource(
-                                                                    "blockBtnText"
-                                                                )}
-                                                                label="Кнопка"
-                                                                validate={[
-                                                                    required(),
-                                                                ]}
-                                                                style={
-                                                                    defaultStyle
-                                                                }
-                                                            />
-                                                        </>
-                                                    )}
+                                                    ) : null}
                                                 </>
                                             ) : null}
 

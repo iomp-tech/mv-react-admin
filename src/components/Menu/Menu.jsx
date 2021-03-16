@@ -33,6 +33,7 @@ class Menu extends Component {
         {name: "I", label: "Рассылка института", icon: <MenuIcon />},
         {name: "J", label: "О Институте", icon: <MenuIcon />},
         {name: "K", label: "Пользователи", icon: <MenuIcon />},
+        {name: "L", label: "Интеграции", icon: <MenuIcon />},
     ];
     constructor(props) {
         super(props);

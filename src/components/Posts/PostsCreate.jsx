@@ -140,6 +140,19 @@ const PostsCreate = (props) => {
                         </ImageInput>
                     </SimpleFormIterator>
                 </ArrayInput>
+
+                <TextInput
+                    label="Произвольный JavaScript код"
+                    source="postPageJs"
+                    style={defaultStyle}
+                    multiline
+                />
+                <TextInput
+                    label="Теги HTML"
+                    source="postPageHtml"
+                    style={defaultStyle}
+                    multiline
+                />
             </SimpleForm>
         </Create>
     );

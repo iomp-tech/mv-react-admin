@@ -67,12 +67,7 @@ const myDataProfider = {
 					}
 
 					if (params.data[key][key2].type === "composition-product") {
-						if (params.data[key][key2].formBoolean) {
-							delete params.data[key][key2].block_id_awo;
-							delete params.data[key][key2].blockTitle;
-							delete params.data[key][key2].blockDescription;
-							delete params.data[key][key2].blockBtnText;
-						} else {
+						if (!params.data[key][key2].formBoolean) {
 							delete params.data[key][key2].form_id_awo
 							delete params.data[key][key2].action
 							delete params.data[key][key2].formId

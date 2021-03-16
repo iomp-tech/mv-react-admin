@@ -85,3 +85,7 @@ export { default as InstituteEdit } from './Institute/InstituteEdit';
 // users
 export { default as UsersList } from './Users/UsersList';
 export { default as UserEdit } from './Users/UserEdit';
+
+// integrationPage
+export { default as IntegrationPageList } from './IntegrationPage/IntegrationPageList';
+export { default as IntegrationPageEdit } from './IntegrationPage/IntegrationPageEdit';
