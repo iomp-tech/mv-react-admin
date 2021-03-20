@@ -6,12 +6,12 @@ const InstituteList = (props) => {
     return (
         <List {...props} pagination={false} title="О Институте">
             <Datagrid>
+                <EditButton />
                 <TextField
                     label="Имя раздела"
                     source="title"
                     sortable={false}
                 />
-                <EditButton />
             </Datagrid>
         </List>
     );

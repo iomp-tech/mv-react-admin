@@ -5,10 +5,10 @@ const GoodsTimetypeList = (props) => {
     return (
         <List {...props} pagination={false} title="Тип времени товаров">
             <Datagrid>
+                <EditButton />
                 <TextField label="ID" source="id" sortable={false} />
                 <TextField label="Название" source="title" sortable={false} />
                 <ChipField label="Ключ" source="key" sortable={false} />
-                <EditButton />
             </Datagrid>
         </List>
     );

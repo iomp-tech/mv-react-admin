@@ -6,9 +6,9 @@ const GoodsTypeList = (props) => {
     return (
         <List {...props} pagination={false} title="Типы товаров">
             <Datagrid>
+                <EditButton />
                 <TextField label="ID" source="id" sortable={false} />
                 <TextField label="Имя" source="title" sortable={false} />
-                <EditButton />
             </Datagrid>
         </List>
     );

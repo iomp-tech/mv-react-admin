@@ -142,14 +142,26 @@ const PostsCreate = (props) => {
                 </ArrayInput>
 
                 <TextInput
-                    label="Произвольный JavaScript код"
-                    source="postPageJs"
+                    label="Произвольный JavaScript код (вверх страницы)"
+                    source="postPageTopJs"
                     style={defaultStyle}
                     multiline
                 />
                 <TextInput
-                    label="Теги HTML"
-                    source="postPageHtml"
+                    label="Теги HTML (вверх страницы)"
+                    source="postPageTopHtml"
+                    style={defaultStyle}
+                    multiline
+                />
+                <TextInput
+                    label="Произвольный JavaScript код (вниз страницы)"
+                    source="postPageBottomJs"
+                    style={defaultStyle}
+                    multiline
+                />
+                <TextInput
+                    label="Теги HTML (вниз страницы)"
+                    source="postPageBottomHtml"
                     style={defaultStyle}
                     multiline
                 />

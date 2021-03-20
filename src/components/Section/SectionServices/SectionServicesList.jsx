@@ -1,17 +1,12 @@
 import React from "react";
 
-import {
-    List,
-    Datagrid,
-    TextField,
-    EditButton,
-    SelectField,
-} from "react-admin";
+import {List, Datagrid, TextField, EditButton, SelectField} from "react-admin";
 
 const SectionServicesList = (props) => {
     return (
         <List {...props} pagination={false} title="Инфо о образовании">
             <Datagrid>
+                <EditButton />
                 <TextField label="ID" source="id" sortable={false} />
                 <TextField label="Заголовок" source="title" sortable={false} />
                 <TextField
@@ -30,7 +25,6 @@ const SectionServicesList = (props) => {
                         {key: "big", title: "Большой"},
                     ]}
                 />
-                <EditButton />
             </Datagrid>
         </List>
     );

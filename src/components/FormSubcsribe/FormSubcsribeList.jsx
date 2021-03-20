@@ -11,6 +11,7 @@ const FormSubcsribeList = (props) => {
             bulkActionButtons={false}
         >
             <Datagrid>
+                <EditButton />
                 <TextField
                     label="ID группы подписчиков на которую надо подписать"
                     source="id_awo"
@@ -31,7 +32,6 @@ const FormSubcsribeList = (props) => {
                     source="formVc"
                     sortable={false}
                 />
-                <EditButton />
             </Datagrid>
         </List>
     );

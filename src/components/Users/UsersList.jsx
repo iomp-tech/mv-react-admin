@@ -26,6 +26,7 @@ const UsersList = (props) => {
             filters={<UsersFilter />}
         >
             <Datagrid>
+                <EditButton />
                 <ImageField label="Аватар" source="avatar" sortable={false} />
                 <TextField
                     label="ID на АвтоВебОфис"
@@ -44,7 +45,6 @@ const UsersList = (props) => {
                     source="confirmed"
                     sortable={false}
                 />
-                <EditButton />
             </Datagrid>
         </List>
     );

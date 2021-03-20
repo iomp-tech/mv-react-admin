@@ -6,6 +6,7 @@ const SectionAboutList = (props) => {
     return (
         <List {...props} pagination={false} title="О нас">
             <Datagrid>
+                <EditButton />
                 <TextField label="ID" source="id" sortable={false} />
                 <TextField label="Заголовок" source="title" sortable={false} />
                 <TextField
@@ -13,7 +14,6 @@ const SectionAboutList = (props) => {
                     source="subtitle"
                     sortable={false}
                 />
-                <EditButton />
             </Datagrid>
         </List>
     );

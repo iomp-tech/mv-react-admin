@@ -17,6 +17,7 @@ const GoodsList = (props) => {
     return (
         <List {...props} pagination={false} title="Товары">
             <Datagrid>
+                <EditButton />
                 <TextField label="ID" source="id" sortable={false} />
                 <ImageField
                     label="Изображение"
@@ -119,7 +120,6 @@ const GoodsList = (props) => {
                     source="searchTags"
                     sortable={false}
                 />
-                <EditButton />
             </Datagrid>
         </List>
     );

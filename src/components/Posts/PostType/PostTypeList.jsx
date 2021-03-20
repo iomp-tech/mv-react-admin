@@ -6,9 +6,9 @@ const PostTypeList = (props) => {
     return (
         <List {...props} pagination={false} title="Типы постов">
             <Datagrid>
+                <EditButton />
                 <TextField label="Имя" source="title" sortable={false} />
                 <ChipField label="Ключ" source="key" sortable={false} />
-                <EditButton />
             </Datagrid>
         </List>
     );

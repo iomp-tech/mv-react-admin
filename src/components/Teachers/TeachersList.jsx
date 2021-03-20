@@ -13,6 +13,7 @@ const TeachersList = (props) => {
     return (
         <List {...props} pagination={false} title="Все преподаватели">
             <Datagrid>
+                <EditButton />
                 <TextField label="ID" source="id" sortable={false} />
                 <ImageField label="Аватар" source="avatar" sortable={false} />
                 <TextField
@@ -20,13 +21,8 @@ const TeachersList = (props) => {
                     source="name"
                     sortable={false}
                 />
-                <TextField
-                    label="Должность"
-                    source="type"
-                    sortable={false}
-                />
+                <TextField label="Должность" source="type" sortable={false} />
                 <BooleanField label="Главная секция" source="main" />
-                <EditButton />
             </Datagrid>
         </List>
     );

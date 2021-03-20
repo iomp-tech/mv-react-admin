@@ -18,23 +18,19 @@ const FooterContactList = (props) => {
             bulkActionButtons={false}
         >
             <Datagrid>
+				<EditButton />
+				
                 <TextField label="ID" source="id" sortable={false} />
 
                 <EmailField label="Email" source="email" sortable={false} />
 
                 <ArrayField source="phones" label="Телефоны" sortable={false}>
                     <Datagrid>
-                        <TextField
-                            source="phone"
-                            label=""
-                            sortable={false}
-                        />
+                        <TextField source="phone" label="" sortable={false} />
                     </Datagrid>
                 </ArrayField>
 
                 <TextField label="Адрес" source="adres" sortable={false} />
-
-                <EditButton />
             </Datagrid>
         </List>
     );

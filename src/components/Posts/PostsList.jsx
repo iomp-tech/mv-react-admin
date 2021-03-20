@@ -2,8 +2,8 @@ import React from "react";
 
 import {
     List,
-	Datagrid,
-	SingleFieldList,
+    Datagrid,
+    SingleFieldList,
     ReferenceManyField,
     ReferenceArrayField,
     TextField,
@@ -16,6 +16,7 @@ const PostsList = (props) => {
     return (
         <List {...props} pagination={false} title="Посты">
             <Datagrid>
+                <EditButton />
                 <TextField label="ID" source="id" sortable={false} />
                 <ImageField
                     label="Изображение"
@@ -61,7 +62,6 @@ const PostsList = (props) => {
                         <ChipField source="title" />
                     </SingleFieldList>
                 </ReferenceManyField>
-                <EditButton />
             </Datagrid>
         </List>
     );

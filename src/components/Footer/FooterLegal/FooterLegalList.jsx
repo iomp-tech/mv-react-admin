@@ -6,9 +6,9 @@ const FooterLegalList = (props) => {
     return (
         <List {...props} pagination={false} title="Футер (подвал)">
             <Datagrid>
+                <EditButton />
                 <TextField label="ID" source="id" sortable={false} />
                 <TextField label="Строка" source="string" sortable={false} />
-                <EditButton />
             </Datagrid>
         </List>
     );

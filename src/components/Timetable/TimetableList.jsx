@@ -11,8 +11,8 @@ import {
     UrlField,
     ChipField,
     ImageField,
-	BooleanField,
-	TextInput,
+    BooleanField,
+    TextInput,
     EditButton,
 } from "react-admin";
 
@@ -31,6 +31,7 @@ const TimetableList = (props) => {
             filters={<TimetableFilter />}
         >
             <Datagrid>
+                <EditButton />
                 <TextField label="ID" source="id" sortable={false} />
                 <TextField
                     label="ID на АвтоВебОфис"
@@ -139,7 +140,6 @@ const TimetableList = (props) => {
                     source="telegramUrl"
                     sortable={false}
                 />
-                <EditButton />
             </Datagrid>
         </List>
     );

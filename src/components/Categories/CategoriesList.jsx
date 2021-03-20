@@ -12,6 +12,7 @@ const CategoriesList = (props) => {
     return (
         <List {...props} pagination={false} title="Категории">
             <Datagrid>
+                <EditButton />
                 <TextField label="ID" source="id" sortable={false} />
                 <ImageField
                     label="Изображение"
@@ -24,7 +25,6 @@ const CategoriesList = (props) => {
                     source="key"
                     sortable={false}
                 />
-                <EditButton />
             </Datagrid>
         </List>
     );

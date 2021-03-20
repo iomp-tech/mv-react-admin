@@ -18,11 +18,11 @@ const FooterSocialList = (props) => {
             bulkActionButtons={false}
         >
             <Datagrid>
+                <EditButton />
                 <TextField label="ID" source="id" sortable={false} />
                 <ImageField label="Иконка" source="icon" sortable={false} />
                 <TextField label="Название" source="title" sortable={false} />
                 <UrlField label="Ссылка" source="href" sortable={false} />
-                <EditButton />
             </Datagrid>
         </List>
     );

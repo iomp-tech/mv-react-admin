@@ -11,6 +11,7 @@ const SectionMainList = (props) => {
             bulkActionButtons={false}
         >
             <Datagrid>
+                <EditButton />
                 <TextField label="Заголовок" source="title" sortable={false} />
                 <TextField
                     label="Описание"
@@ -27,7 +28,6 @@ const SectionMainList = (props) => {
                     source="buttonHref"
                     sortable={false}
                 />
-                <EditButton />
             </Datagrid>
         </List>
     );
