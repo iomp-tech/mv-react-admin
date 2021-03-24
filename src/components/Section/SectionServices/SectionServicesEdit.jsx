@@ -7,7 +7,7 @@ import {defaultStyle} from "../../../style";
 const SectionServicesEdit = (props) => {
     return (
         <Edit {...props}>
-            <SimpleForm>
+            <SimpleForm redirect={false}>
                 <TextInput
                     label="Заголовок"
                     source="title"

@@ -19,7 +19,7 @@ import {defaultStyle} from "../../style";
 const TeachersEdit = (props) => {
     return (
         <Edit {...props}>
-            <SimpleForm>
+            <SimpleForm redirect={false}>
                 <TextInput
                     source="name"
                     label="Имя и Фамилия преподавателя"

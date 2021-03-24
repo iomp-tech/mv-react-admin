@@ -21,7 +21,7 @@ import {defaultStyle, arrayInputStyle} from "../../style";
 const InstituteEdit = (props) => {
     return (
         <Edit {...props}>
-            <SimpleForm>
+            <SimpleForm redirect={false}>
                 <TextInput
                     label="Имя"
                     source="title"

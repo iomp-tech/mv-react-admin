@@ -7,8 +7,12 @@ import {defaultStyle} from "../../../style";
 const GoodsTimetypeEdit = (props) => {
     return (
         <Edit {...props}>
-            <SimpleForm>
-                <TextInput label="Название" source="title" style={defaultStyle} />
+            <SimpleForm redirect={false}>
+                <TextInput
+                    label="Название"
+                    source="title"
+                    style={defaultStyle}
+                />
                 <TextInput label="Ключ" source="key" style={defaultStyle} />
             </SimpleForm>
         </Edit>

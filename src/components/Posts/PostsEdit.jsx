@@ -54,7 +54,7 @@ const PostsEdit = (props) => {
 
     return (
         <Edit {...props}>
-            <SimpleForm>
+            <SimpleForm redirect={false}>
                 <TextInput
                     source="title"
                     label="Имя поста"

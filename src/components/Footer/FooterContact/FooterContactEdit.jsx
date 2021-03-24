@@ -22,7 +22,7 @@ const UserEditToolbar = (props) => (
 const FooterContactEdit = (props) => {
     return (
         <Edit {...props}>
-            <SimpleForm toolbar={<UserEditToolbar />}>
+            <SimpleForm redirect={false} toolbar={<UserEditToolbar />}>
                 <TextInput
                     label="Email"
                     source="email"
@@ -39,7 +39,7 @@ const FooterContactEdit = (props) => {
                     <SimpleFormIterator>
                         <TextInput
                             label="Телефон"
-							source="phone"
+                            source="phone"
                             style={defaultStyle}
                             validate={[required()]}
                         />

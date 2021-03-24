@@ -16,7 +16,7 @@ import {defaultStyle} from "../../style";
 const UserEdit = (props) => {
     return (
         <Edit {...props}>
-            <SimpleForm>
+            <SimpleForm redirect={false}>
                 <TextInput
                     label="Имя"
                     source="first_name"
@@ -27,11 +27,7 @@ const UserEdit = (props) => {
                     source="last_name"
                     style={defaultStyle}
                 />
-                <TextInput
-                    label="Email"
-                    source="email"
-                    style={defaultStyle}
-                />
+                <TextInput label="Email" source="email" style={defaultStyle} />
                 <TextInput
                     label="Пароль"
                     source="password"

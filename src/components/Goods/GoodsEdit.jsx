@@ -1,5 +1,4 @@
 import React from "react";
-
 import myDataProfider from "../.././myDataProvider";
 
 import {
@@ -103,211 +102,209 @@ const GoodsEdit = (props) => {
 
     return (
         <Edit {...props} title="Редактировать товар">
-            <TabbedForm>
+            <TabbedForm redirect={false}>
                 <FormTab label="Товар">
                     <MuiPickersUtilsProvider
                         utils={DateFnsUtils}
                         locale={ruLocale}
                     >
-                        <TextInput
-                            source="id_awo"
-                            label="ID товара на АвтоВебОфис"
-                            type="number"
-                            validate={[required()]}
-                            style={defaultStyle}
-                        />
-                        <TextInput
-                            source="title"
-                            label="Название товара"
-                            validate={[required()]}
-                            style={defaultStyle}
-                        />
-                        <BooleanInput
-                            label="Дорогой ли товар?"
-                            source="expensive"
-                        />
                         <FormDataConsumer>
-                            {({formData}) =>
-                                formData.expensive && (
+                            {({formData}) => (
+                                <>
                                     <TextInput
-                                        source="href"
-                                        label="Ссылка на лендинг страницу"
-                                        validate={[required()]}
-                                        style={defaultStyle}
-                                    />
-                                )
-                            }
-                        </FormDataConsumer>
-                        {categories.length ? (
-                            <SelectInput
-                                label="Категория"
-                                source="category"
-                                choices={categories}
-                                optionValue="key"
-                                optionText="title"
-                                validate={[required()]}
-                                style={defaultStyle}
-                            />
-                        ) : null}
-                        {type.length ? (
-                            <SelectInput
-                                label="Тип"
-                                source="type"
-                                choices={type}
-                                optionValue="key"
-                                optionText="title"
-                                validate={[required()]}
-                                style={defaultStyle}
-                            />
-                        ) : null}
-                        <TextInput
-                            source="time"
-                            label="Время прохождения"
-                            validate={[required()]}
-                            style={defaultStyle}
-                        />
-                        {timetype.length ? (
-                            <SelectInput
-                                label="Тип времени"
-                                source="timeType"
-                                choices={timetype}
-                                optionValue="key"
-                                optionText="title"
-                                validate={[required()]}
-                                style={defaultStyle}
-                            />
-                        ) : null}
-                        {teachers.length ? (
-                            <SelectArrayInput
-                                label="Автор"
-                                validate={[required()]}
-                                source="auth"
-                                choices={teachers}
-                                style={defaultStyle}
-                            />
-                        ) : null}
-                        <TextInput
-                            source="searchTags"
-                            label="Теги для поиска"
-                            validate={[required()]}
-                            style={defaultStyle}
-                            multiline
-                        />
-                        <BooleanInput
-                            label="Добавлять в главную секцию"
-                            source="section"
-                            style={defaultStyle}
-                        />
-                        <BooleanInput
-                            label="Скидка на товар"
-                            source="salebool"
-                        />
-                        <FormDataConsumer>
-                            {({formData}) =>
-                                formData.salebool && (
-                                    <>
-                                        <TextInput
-                                            source="sale"
-                                            label="Сумма скидки"
-                                            type="number"
-                                            validate={[required()]}
-                                            style={defaultStyle}
-                                        />
-                                    </>
-                                )
-                            }
-                        </FormDataConsumer>
-                        <TextInput
-                            source="price"
-                            label="Полная цена со скидкой или полная цена"
-                            type="number"
-                            validate={[required()]}
-                            style={defaultStyle}
-                        />
-                        <FormDataConsumer>
-                            {({formData}) =>
-                                formData.salebool && (
-                                    <TextInput
-                                        source="priceOld"
-                                        label="Цена без скидки"
+                                        source="id_awo"
+                                        label="ID товара на АвтоВебОфис"
                                         type="number"
                                         validate={[required()]}
                                         style={defaultStyle}
                                     />
-                                )
-                            }
-                        </FormDataConsumer>
-                        <FormDataConsumer>
-                            {({formData}) =>
-                                formData.expensive && (
                                     <TextInput
-                                        source="expensiveText"
-                                        label="Текст в цене у дорого товара"
+                                        source="title"
+                                        label="Название товара"
                                         validate={[required()]}
                                         style={defaultStyle}
                                     />
-                                )
-                            }
+                                    <BooleanInput
+                                        label="Дорогой ли товар?"
+                                        source="expensive"
+                                    />
+                                    {formData.expensive && (
+                                        <TextInput
+                                            source="href"
+                                            label="Ссылка на лендинг страницу"
+                                            validate={[required()]}
+                                            style={defaultStyle}
+                                        />
+                                    )}
+                                    {categories.length ? (
+                                        <SelectInput
+                                            label="Категория"
+                                            source="category"
+                                            choices={categories}
+                                            optionValue="key"
+                                            optionText="title"
+                                            validate={[required()]}
+                                            style={defaultStyle}
+                                        />
+                                    ) : null}
+                                    {type.length ? (
+                                        <SelectInput
+                                            label="Тип"
+                                            source="type"
+                                            choices={type}
+                                            optionValue="key"
+                                            optionText="title"
+                                            validate={[required()]}
+                                            style={defaultStyle}
+                                        />
+                                    ) : null}
+                                    <TextInput
+                                        source="time"
+                                        label="Время прохождения"
+                                        validate={[required()]}
+                                        style={defaultStyle}
+                                    />
+                                    {timetype.length ? (
+                                        <SelectInput
+                                            label="Тип времени"
+                                            source="timeType"
+                                            choices={timetype}
+                                            optionValue="key"
+                                            optionText="title"
+                                            validate={[required()]}
+                                            style={defaultStyle}
+                                        />
+                                    ) : null}
+                                    {teachers.length ? (
+                                        <SelectArrayInput
+                                            label="Автор"
+                                            validate={[required()]}
+                                            source="auth"
+                                            choices={teachers}
+                                            style={defaultStyle}
+                                        />
+                                    ) : null}
+                                    <TextInput
+                                        source="searchTags"
+                                        label="Теги для поиска"
+                                        validate={[required()]}
+                                        style={defaultStyle}
+                                        multiline
+                                    />
+                                    <BooleanInput
+                                        label="Добавлять в главную секцию"
+                                        source="section"
+                                        style={defaultStyle}
+                                    />
+                                    <BooleanInput
+                                        label="Скидка на товар"
+                                        source="salebool"
+                                    />
+                                    {formData.salebool && (
+                                        <>
+                                            <TextInput
+                                                source="sale"
+                                                label="Сумма скидки"
+                                                type="number"
+                                                validate={[required()]}
+                                                style={defaultStyle}
+                                            />
+                                        </>
+                                    )}
+                                    <TextInput
+                                        source="price"
+                                        label="Полная цена со скидкой или полная цена"
+                                        type="number"
+                                        validate={[required()]}
+                                        style={defaultStyle}
+                                    />
+                                    {formData.salebool && (
+                                        <TextInput
+                                            source="priceOld"
+                                            label="Цена без скидки"
+                                            type="number"
+                                            validate={[required()]}
+                                            style={defaultStyle}
+                                        />
+                                    )}
+                                    {formData.expensive && (
+                                        <TextInput
+                                            source="expensiveText"
+                                            label="Текст в цене у дорого товара"
+                                            validate={[required()]}
+                                            style={defaultStyle}
+                                        />
+                                    )}
+                                    <BooleanInput
+                                        label="Виден ли товар?"
+                                        source="visibility"
+                                    />
+
+                                    <ImageInput
+                                        source="thumb"
+                                        label="Изображение (максимальный размер 2МБ)"
+                                        maxSize="2000000"
+                                        accept="image/*"
+                                        placeholder={
+                                            <p>Перетащите файл сюда</p>
+                                        }
+                                        style={defaultStyle}
+                                    >
+                                        <PreviewImage source="src" />
+                                    </ImageInput>
+
+                                    <TextInput
+                                        label="Произвольный JavaScript код (вверх страницы)"
+                                        source="shopPageTopJs"
+                                        style={defaultStyle}
+                                        multiline
+                                    />
+                                    <TextInput
+                                        label="Теги HTML (вверх страницы)"
+                                        source="shopPageTopHtml"
+                                        style={defaultStyle}
+                                        multiline
+                                    />
+                                    <TextInput
+                                        label="Произвольный JavaScript код (вниз страницы)"
+                                        source="shopPageBottomJs"
+                                        style={defaultStyle}
+                                        multiline
+                                    />
+                                    <TextInput
+                                        label="Теги HTML (вниз страницы)"
+                                        source="shopPageBottomHtml"
+                                        style={defaultStyle}
+                                        multiline
+                                    />
+
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            ...defaultStyle,
+                                        }}
+                                    >
+                                        <p
+                                            style={{
+                                                fontSize: "18px",
+                                                fontFamily: "sans-serif",
+                                                paddingTop: "7px",
+                                                paddingRight: "15px",
+                                                color: "#ccc",
+                                            }}
+                                        >
+                                            http://iomp.ru/shop/pages/
+                                        </p>
+
+                                        <TextInput
+                                            source="url"
+                                            label="Ссылка на Лендинг страницу"
+                                            style={defaultStyle}
+                                        />
+                                    </div>
+                                </>
+                            )}
                         </FormDataConsumer>
-                        <BooleanInput
-                            label="Виден ли товар?"
-                            source="visibility"
-                        />
-                        <ImageInput
-                            source="thumb"
-                            label="Изображение (максимальный размер 2МБ)"
-                            maxSize="2000000"
-                            accept="image/*"
-                            placeholder={<p>Перетащите файл сюда</p>}
-                            style={defaultStyle}
-                        >
-                            <PreviewImage source="src" />
-                        </ImageInput>
-
-                        <TextInput
-                            label="Произвольный JavaScript код (вверх страницы)"
-                            source="shopPageTopJs"
-                            style={defaultStyle}
-                            multiline
-                        />
-                        <TextInput
-                            label="Теги HTML (вверх страницы)"
-                            source="shopPageTopHtml"
-                            style={defaultStyle}
-                            multiline
-                        />
-                        <TextInput
-                            label="Произвольный JavaScript код (вниз страницы)"
-                            source="shopPageBottomJs"
-                            style={defaultStyle}
-                            multiline
-                        />
-                        <TextInput
-                            label="Теги HTML (вниз страницы)"
-                            source="shopPageBottomHtml"
-                            style={defaultStyle}
-                            multiline
-                        />
-
-                        <div style={{display: "flex"}}>
-                            <p
-                                style={{
-                                    fontSize: "18px",
-                                    fontFamily: "sans-serif",
-                                    paddingTop: "7px",
-                                    paddingRight: "15px",
-                                    color: "#ccc",
-                                }}
-                            >
-                                http://iomp.ru/shop/pages/
-                            </p>
-
-                            <TextInput
-                                source="url"
-                                label="Ссылка на Лендинг страницу"
-                                style={defaultStyle}
-                            />
-                        </div>
                     </MuiPickersUtilsProvider>
                 </FormTab>
                 <FormTab label="Конструктор">

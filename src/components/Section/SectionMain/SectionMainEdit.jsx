@@ -20,7 +20,7 @@ const UserEditToolbar = (props) => (
 const SectionMainEdit = (props) => {
     return (
         <Edit {...props}>
-            <SimpleForm toolbar={<UserEditToolbar />}>
+            <SimpleForm toolbar={<UserEditToolbar />} redirect={false}>
                 <TextInput
                     label="Заголовок"
                     source="title"

@@ -7,7 +7,7 @@ import {defaultStyle} from "../../../style";
 const FooterLegalEdit = (props) => {
     return (
         <Edit {...props}>
-            <SimpleForm>
+            <SimpleForm redirect={false}>
                 <TextInput
                     label="Строка"
                     source="string"

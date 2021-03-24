@@ -7,7 +7,7 @@ import {defaultStyle} from "../../../style";
 const PostTypeEdit = (props) => {
     return (
         <Edit {...props}>
-            <SimpleForm>
+            <SimpleForm redirect={false}>
                 <TextInput
                     source="title"
                     label="Имя типа"

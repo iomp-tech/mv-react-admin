@@ -93,277 +93,272 @@ const TimetableEdit = (props) => {
 
     return (
         <Edit {...props}>
-            <TabbedForm>
+            <TabbedForm redirect={false}>
                 <FormTab label="Расписание">
                     <MuiPickersUtilsProvider
                         utils={DateFnsUtils}
                         locale={ruLocale}
                     >
-                        <TextInput
-                            source="title"
-                            label="Имя"
-                            validate={[required()]}
-                            style={defaultStyle}
-                        />
-                        <TextInput
-                            source="key"
-                            label="Ключ"
-                            validate={[required()]}
-                            style={defaultStyle}
-                        />
-                        <TextInput
-                            source="description"
-                            label="Описание"
-                            validate={[required()]}
-                            style={defaultStyle}
-                            multiline
-                        />
-                        <TextInput
-                            source="id_awo"
-                            label="ID группы на АвтоВебОфис"
-                            validate={[required()]}
-                            style={defaultStyle}
-                        />
-                        <TextInput
-                            source="action"
-                            label="Введите значения атрибута 'action' в теге '<form>'"
-                            validate={[required()]}
-                            style={defaultStyle}
-                        />
-                        <TextInput
-                            source="formId"
-                            label="Введите значения атрибута 'value' в теге '<input>' с 'name=formId'"
-                            validate={[required()]}
-                            style={defaultStyle}
-                        />
-                        <TextInput
-                            source="formVc"
-                            label="Введите значения атрибута 'value' в теге '<input>' с 'name=formVc'"
-                            validate={[required()]}
-                            style={defaultStyle}
-                        />
-                        <BooleanInput
-                            label="Авто"
-                            source="auto"
-                            style={defaultStyle}
-                        />
                         <FormDataConsumer>
-                            {({formData}) =>
-                                formData.auto && (
+                            {({formData}) => (
+                                <>
                                     <TextInput
-                                        source="day"
-                                        label="На сколько дней продлевается мероприятие"
+                                        source="title"
+                                        label="Имя"
                                         validate={[required()]}
                                         style={defaultStyle}
-                                        type="number"
                                     />
-                                )
-                            }
-                        </FormDataConsumer>
-                        <BooleanInput
-                            label="Диапазон"
-                            source="range"
-                            style={defaultStyle}
-                        />
-                        <FormDataConsumer>
-                            {({formData}) =>
-                                formData.range ? (
-                                    <>
+                                    <TextInput
+                                        source="key"
+                                        label="Ключ"
+                                        validate={[required()]}
+                                        style={defaultStyle}
+                                    />
+                                    <TextInput
+                                        source="description"
+                                        label="Описание"
+                                        validate={[required()]}
+                                        style={defaultStyle}
+                                        multiline
+                                    />
+                                    <TextInput
+                                        source="id_awo"
+                                        label="ID группы на АвтоВебОфис"
+                                        validate={[required()]}
+                                        style={defaultStyle}
+                                    />
+                                    <TextInput
+                                        source="action"
+                                        label="Введите значения атрибута 'action' в теге '<form>'"
+                                        validate={[required()]}
+                                        style={defaultStyle}
+                                    />
+                                    <TextInput
+                                        source="formId"
+                                        label="Введите значения атрибута 'value' в теге '<input>' с 'name=formId'"
+                                        validate={[required()]}
+                                        style={defaultStyle}
+                                    />
+                                    <TextInput
+                                        source="formVc"
+                                        label="Введите значения атрибута 'value' в теге '<input>' с 'name=formVc'"
+                                        validate={[required()]}
+                                        style={defaultStyle}
+                                    />
+                                    <BooleanInput
+                                        label="Авто"
+                                        source="auto"
+                                        style={defaultStyle}
+                                    />
+                                    {formData.auto && (
+                                        <TextInput
+                                            source="day"
+                                            label="На сколько дней продлевается мероприятие"
+                                            validate={[required()]}
+                                            style={defaultStyle}
+                                            type="number"
+                                        />
+                                    )}
+                                    <BooleanInput
+                                        label="Диапазон"
+                                        source="range"
+                                        style={defaultStyle}
+                                    />
+                                    {formData.range ? (
+                                        <>
+                                            <DateTimeInput
+                                                options={{
+                                                    inputVariant: "outlined",
+                                                    format: "yyyy-MM-dd, HH:mm",
+                                                }}
+                                                value={selectedDate}
+                                                onChange={handleDateChange}
+                                                source="minDate"
+                                                label="С"
+                                                validate={[required()]}
+                                                style={defaultStyle}
+                                            />
+                                            <DateTimeInput
+                                                options={{
+                                                    inputVariant: "outlined",
+                                                    format: "yyyy-MM-dd, HH:mm",
+                                                }}
+                                                value={selectedDate}
+                                                onChange={handleDateChange}
+                                                source="maxDate"
+                                                label="До"
+                                                validate={[required()]}
+                                                style={defaultStyle}
+                                            />
+                                        </>
+                                    ) : (
+                                        <DateTimeInput
+                                            options={{
+                                                inputVariant: "outlined",
+                                                format: "yyyy-MM-dd, HH:mm",
+                                                clearable: true,
+                                            }}
+                                            value={selectedDate}
+                                            onChange={handleDateChange}
+                                            source="date"
+                                            label="Дата и время проведения"
+                                            validate={[required()]}
+                                            style={defaultStyle}
+                                        />
+                                    )}
+                                    {!formData.auto && (
                                         <DateTimeInput
                                             options={{
                                                 inputVariant: "outlined",
                                                 format: "yyyy-MM-dd, HH:mm",
                                             }}
-                                            source="minDate"
-                                            label="С"
+                                            value={selectedDate}
+                                            onChange={handleDateChange}
+                                            source="dateDelete"
+                                            label="Дата и время удаления"
                                             validate={[required()]}
                                             style={defaultStyle}
                                         />
-                                        <DateTimeInput
-                                            options={{
-                                                inputVariant: "outlined",
-                                                format: "yyyy-MM-dd, HH:mm",
+                                    )}
+                                    <BooleanInput
+                                        label="Видимо ли мероприятие?"
+                                        source="visibility"
+                                        style={defaultStyle}
+                                    />
+                                    {type.length ? (
+                                        <SelectInput
+                                            label="Тип"
+                                            source="type"
+                                            choices={type}
+                                            optionValue="key"
+                                            optionText="title"
+                                            validate={[required()]}
+                                            style={defaultStyle}
+                                        />
+                                    ) : null}
+                                    {categories.length ? (
+                                        <SelectInput
+                                            label="Категория"
+                                            source="category"
+                                            choices={categories}
+                                            optionValue="key"
+                                            optionText="title"
+                                            validate={[required()]}
+                                            style={defaultStyle}
+                                        />
+                                    ) : null}
+                                    {teachers.length ? (
+                                        <SelectArrayInput
+                                            label="Автор"
+                                            validate={[required()]}
+                                            source="auth"
+                                            choices={teachers}
+                                            style={defaultStyle}
+                                        />
+                                    ) : null}
+                                    <BooleanInput
+                                        label="Подписка через VK"
+                                        source="vk"
+                                        style={defaultStyle}
+                                    />
+                                    <FormDataConsumer>
+                                        {({formData}) =>
+                                            formData.vk && (
+                                                <TextInput
+                                                    source="vkUrl"
+                                                    label="Ссылка VK"
+                                                    validate={[required()]}
+                                                    style={defaultStyle}
+                                                />
+                                            )
+                                        }
+                                    </FormDataConsumer>
+                                    <BooleanInput
+                                        label="Подписка через Telegram"
+                                        source="telegram"
+                                        style={defaultStyle}
+                                    />
+                                    {formData.telegram && (
+                                        <TextInput
+                                            source="telegramUrl"
+                                            label="Ссылка Telegram"
+                                            validate={[required()]}
+                                            style={defaultStyle}
+                                        />
+                                    )}
+                                    <BooleanInput
+                                        label="Добавлять в главный слайдер"
+                                        source="slider"
+                                        style={defaultStyle}
+                                    />
+
+                                    {formData.slider && (
+                                        <>
+                                            <ImageInput
+                                                source="thumb"
+                                                label="Изображение (максимальный размер 2МБ)"
+                                                maxSize="2000000"
+                                                accept="image/*"
+                                                placeholder={
+                                                    <p>Перетащите файл сюда</p>
+                                                }
+                                                validate={[required()]}
+                                                style={defaultStyle}
+                                            >
+                                                <PreviewImage source="src" />
+                                            </ImageInput>
+                                        </>
+                                    )}
+
+                                    <TextInput
+                                        label="Произвольный JavaScript код (вверх страницы)"
+                                        source="timetablePageTopJs"
+                                        style={defaultStyle}
+                                        multiline
+                                    />
+                                    <TextInput
+                                        label="Теги HTML (вверх страницы)"
+                                        source="timetablePageTopHtml"
+                                        style={defaultStyle}
+                                        multiline
+                                    />
+                                    <TextInput
+                                        label="Произвольный JavaScript код (вниз страницы)"
+                                        source="timetablePageBottomJs"
+                                        style={defaultStyle}
+                                        multiline
+                                    />
+                                    <TextInput
+                                        label="Теги HTML (вниз страницы)"
+                                        source="timetablePageBottomHtml"
+                                        style={defaultStyle}
+                                        multiline
+                                    />
+
+                                    <div style={{display: "flex"}}>
+                                        <p
+                                            style={{
+                                                fontSize: "18px",
+                                                fontFamily: "sans-serif",
+                                                paddingTop: "7px",
+                                                paddingRight: "15px",
+                                                color: "#ccc",
                                             }}
-                                            source="maxDate"
-                                            label="До"
-                                            validate={[required()]}
-                                            style={defaultStyle}
-                                        />
-                                    </>
-                                ) : (
-                                    <DateTimeInput
-                                        options={{
-                                            inputVariant: "outlined",
-                                            format: "yyyy-MM-dd, HH:mm",
-                                        }}
-                                        source="date"
-                                        label="Дата и время проведения"
-                                        validate={[required()]}
-                                        style={defaultStyle}
-                                    />
-                                )
-                            }
-                        </FormDataConsumer>
-                        <FormDataConsumer>
-                            {({formData}) =>
-                                !formData.auto && (
-                                    <DateTimeInput
-                                        options={{
-                                            inputVariant: "outlined",
-                                            format: "yyyy-MM-dd, HH:mm",
-                                        }}
-                                        source="dateDelete"
-                                        label="Дата и время удаления"
-                                        validate={[required()]}
-                                        style={defaultStyle}
-                                    />
-                                )
-                            }
-                        </FormDataConsumer>
-                        <BooleanInput
-                            label="Видимо ли мероприятие?"
-                            source="visibility"
-                            style={defaultStyle}
-                        />
-                        {type.length ? (
-                            <SelectInput
-                                label="Тип"
-                                source="type"
-                                choices={type}
-                                optionValue="key"
-                                optionText="title"
-                                validate={[required()]}
-                                style={defaultStyle}
-                            />
-                        ) : null}
-                        {categories.length ? (
-                            <SelectInput
-                                label="Категория"
-                                source="category"
-                                choices={categories}
-                                optionValue="key"
-                                optionText="title"
-                                validate={[required()]}
-                                style={defaultStyle}
-                            />
-                        ) : null}
-                        {teachers.length ? (
-                            <SelectArrayInput
-                                label="Автор"
-                                validate={[required()]}
-                                source="auth"
-                                choices={teachers}
-                                style={defaultStyle}
-                            />
-                        ) : null}
-                        <BooleanInput
-                            label="Подписка через VK"
-                            source="vk"
-                            style={defaultStyle}
-                        />
-                        <FormDataConsumer>
-                            {({formData}) =>
-                                formData.vk && (
-                                    <TextInput
-                                        source="vkUrl"
-                                        label="Ссылка VK"
-                                        validate={[required()]}
-                                        style={defaultStyle}
-                                    />
-                                )
-                            }
-                        </FormDataConsumer>
-                        <BooleanInput
-                            label="Подписка через Telegram"
-                            source="telegram"
-                            style={defaultStyle}
-                        />
-                        <FormDataConsumer>
-                            {({formData}) =>
-                                formData.telegram && (
-                                    <TextInput
-                                        source="telegramUrl"
-                                        label="Ссылка Telegram"
-                                        validate={[required()]}
-                                        style={defaultStyle}
-                                    />
-                                )
-                            }
-                        </FormDataConsumer>
-                        <BooleanInput
-                            label="Добавлять в главный слайдер"
-                            source="slider"
-                            style={defaultStyle}
-                        />
-                        <FormDataConsumer>
-                            {({formData}) =>
-                                formData.slider && (
-                                    <>
-                                        <ImageInput
-                                            source="thumb"
-                                            label="Изображение (максимальный размер 2МБ)"
-                                            maxSize="2000000"
-                                            accept="image/*"
-                                            placeholder={
-                                                <p>Перетащите файл сюда</p>
-                                            }
-                                            validate={[required()]}
-                                            style={defaultStyle}
                                         >
-                                            <PreviewImage source="src" />
-                                        </ImageInput>
-                                    </>
-                                )
-                            }
+                                            http://iomp.ru/timetable/pages/
+                                        </p>
+
+                                        <TextInput
+                                            source="url"
+                                            label="Ссылка на Лендинг страницу"
+                                            style={defaultStyle}
+                                        />
+                                    </div>
+                                </>
+                            )}
                         </FormDataConsumer>
-
-                        <TextInput
-                            label="Произвольный JavaScript код (вверх страницы)"
-                            source="timetablePageTopJs"
-                            style={defaultStyle}
-                            multiline
-                        />
-                        <TextInput
-                            label="Теги HTML (вверх страницы)"
-                            source="timetablePageTopHtml"
-                            style={defaultStyle}
-                            multiline
-                        />
-                        <TextInput
-                            label="Произвольный JavaScript код (вниз страницы)"
-                            source="timetablePageBottomJs"
-                            style={defaultStyle}
-                            multiline
-                        />
-                        <TextInput
-                            label="Теги HTML (вниз страницы)"
-                            source="timetablePageBottomHtml"
-                            style={defaultStyle}
-                            multiline
-                        />
-
-                        <div style={{display: "flex"}}>
-                            <p
-                                style={{
-                                    fontSize: "18px",
-                                    fontFamily: "sans-serif",
-                                    paddingTop: "7px",
-                                    paddingRight: "15px",
-                                    color: "#ccc",
-                                }}
-                            >
-                                http://iomp.ru/timetable/pages/
-                            </p>
-
-                            <TextInput
-                                source="url"
-                                label="Ссылка на Лендинг страницу"
-                                style={defaultStyle}
-                            />
-                        </div>
                     </MuiPickersUtilsProvider>
                 </FormTab>
-
                 <FormTab label="Конструктор">
                     <MuiPickersUtilsProvider
                         utils={DateFnsUtils}

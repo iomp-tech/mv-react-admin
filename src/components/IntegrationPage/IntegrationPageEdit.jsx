@@ -21,7 +21,7 @@ const UserEditToolbar = (props) => (
 const IntegrationPageEdit = (props) => {
     return (
         <Edit {...props} title="Интеграции">
-            <TabbedForm toolbar={<UserEditToolbar />}>
+            <TabbedForm toolbar={<UserEditToolbar />} redirect={false}>
                 <FormTab label="На каждую страницу">
                     <TextInput
                         label="Произвольный JavaScript код (вверх страницы)"

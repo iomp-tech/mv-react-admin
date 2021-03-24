@@ -14,7 +14,7 @@ import {defaultStyle} from "../../../style";
 const FooterSocialEdit = (props) => {
     return (
         <Edit {...props} title="Изменить соц.сеть">
-            <SimpleForm>
+            <SimpleForm redirect={false}>
                 <TextInput
                     label="Заголовок"
                     source="title"

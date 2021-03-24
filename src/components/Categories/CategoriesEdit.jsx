@@ -16,7 +16,7 @@ import {defaultStyle} from "../../style";
 const CategoriesEdit = (props) => {
     return (
         <Edit {...props}>
-            <SimpleForm>
+            <SimpleForm redirect={false}>
                 <TextInput
                     label="Название"
                     source="title"

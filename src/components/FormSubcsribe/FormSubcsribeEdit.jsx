@@ -20,7 +20,7 @@ const UserEditToolbar = (props) => (
 const FormSubcsribeEdit = (props) => {
     return (
         <Edit {...props}>
-            <SimpleForm toolbar={<UserEditToolbar />}>
+            <SimpleForm redirect={false} toolbar={<UserEditToolbar />}>
                 <TextInput
                     label="ID группы подписчиков на которую надо подписать"
                     source="id_awo"
