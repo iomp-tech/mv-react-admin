@@ -2,7 +2,7 @@ import { fetchUtils } from "react-admin";
 import restServerProvider from 'ra-data-json-server';
 import { format, isDate } from "date-fns";
 
-export const servicesHost = 'http://cj30860.tmweb.ru/api/public/api';
+export const servicesHost = 'http://127.0.0.1:8000/api';
 //http://127.0.0.1:8000/api
 //http://cj30860.tmweb.ru/api/public/api
 
@@ -77,6 +77,8 @@ const myDataProfider = {
 				}
 
 				formData.append('page', JSON.stringify(params.data[key]));
+			} else if (key === "id_awo_courses") {
+				formData.append('id_awo_courses', JSON.stringify(params.data[key]));
 			} else if (key === "date" || key === "dateDelete" || key === "minDate" || key === "maxDate") {
 				formData.append(key, format(params.data[key], 'yyyy-MM-dd, HH:mm'));
 

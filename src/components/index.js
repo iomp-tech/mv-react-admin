@@ -89,3 +89,7 @@ export { default as UserEdit } from './Users/UserEdit';
 // integrationPage
 export { default as IntegrationPageList } from './IntegrationPage/IntegrationPageList';
 export { default as IntegrationPageEdit } from './IntegrationPage/IntegrationPageEdit';
+
+// courses
+export { default as CoursesList } from './Courses/CoursesList';
+export { default as CoursesEdit } from './Courses/CoursesEdit';

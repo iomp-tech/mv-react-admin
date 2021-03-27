@@ -11,7 +11,7 @@ import {
 
 import {defaultStyle} from "../../style";
 
-const UserEditToolbar = (props) => (
+const EditToolbar = (props) => (
     <Toolbar {...props}>
         <SaveButton />
     </Toolbar>
@@ -20,7 +20,7 @@ const UserEditToolbar = (props) => (
 const FormSubcsribeEdit = (props) => {
     return (
         <Edit {...props}>
-            <SimpleForm redirect={false} toolbar={<UserEditToolbar />}>
+            <SimpleForm redirect={false} toolbar={<EditToolbar />}>
                 <TextInput
                     label="ID группы подписчиков на которую надо подписать"
                     source="id_awo"
