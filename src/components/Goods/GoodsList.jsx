@@ -30,7 +30,8 @@ const GoodsList = (props) => {
                     source="href"
                     sortable={false}
                 />
-                <UrlField
+                <div>https://iomp.ru/shop/pages/</div>
+                <TextField
                     label="Ссылка на лендинг страницу"
                     source="url"
                     sortable={false}
