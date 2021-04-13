@@ -116,7 +116,8 @@ const TimetableCreate = (props) => {
                                 <TextInput
                                     source="id_awo"
                                     label="ID группы на АвтоВебОфис"
-                                    validate={[required()]}
+									validate={[required()]}
+									type="number"
                                     style={defaultStyle}
                                 />
                                 <TextInput
