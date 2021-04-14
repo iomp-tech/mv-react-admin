@@ -95,6 +95,12 @@ const TimetableCreate = (props) => {
                         {({formData}) => (
                             <>
                                 <TextInput
+                                    source="subtitle"
+                                    label="Надзаголовок"
+                                    validate={[required()]}
+                                    style={defaultStyle}
+                                />
+                                <TextInput
                                     source="title"
                                     label="Имя"
                                     validate={[required()]}
@@ -116,8 +122,8 @@ const TimetableCreate = (props) => {
                                 <TextInput
                                     source="id_awo"
                                     label="ID группы на АвтоВебОфис"
-									validate={[required()]}
-									type="number"
+                                    validate={[required()]}
+                                    type="number"
                                     style={defaultStyle}
                                 />
                                 <TextInput

@@ -1,21 +1,34 @@
 import React from "react";
 import {
     List,
+    Filter,
     Datagrid,
     ReferenceManyField,
     ReferenceArrayField,
     SingleFieldList,
     ChipField,
     TextField,
+    TextInput,
     UrlField,
     BooleanField,
     ImageField,
     EditButton,
 } from "react-admin";
 
+const GoodsFilter = (props) => (
+    <Filter {...props}>
+        <TextInput label="Название" source="title" alwaysOn />
+    </Filter>
+);
+
 const GoodsList = (props) => {
     return (
-        <List {...props} pagination={false} title="Товары">
+        <List
+            {...props}
+            pagination={false}
+            title="Товары"
+            filters={<GoodsFilter />}
+        >
             <Datagrid>
                 <EditButton />
                 <TextField label="ID" source="id" sortable={false} />

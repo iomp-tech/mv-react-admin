@@ -96,6 +96,12 @@ const TimetableEdit = (props) => {
                         {({formData}) => (
                             <>
                                 <TextInput
+                                    source="subtitle"
+                                    label="Надзаголовок"
+                                    validate={[required()]}
+                                    style={defaultStyle}
+                                />
+                                <TextInput
                                     source="title"
                                     label="Имя"
                                     validate={[required()]}

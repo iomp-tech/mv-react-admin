@@ -45,7 +45,7 @@ const TimetableList = (props) => {
                 />
                 <TextField label="Имя" source="title" sortable={false} />
                 <TextField label="Ключ" source="key" sortable={false} />
-                <div>https://iomp.ru/shop/pages/</div>
+                <div>https://iomp.ru/timetable/pages/</div>
                 <TextField
                     label="Ссылка на лендинг страницу"
                     source="url"
