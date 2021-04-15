@@ -2,6 +2,8 @@ import React from "react";
 
 import {
     List,
+    Filter,
+    TextInput,
     Datagrid,
     SingleFieldList,
     ReferenceManyField,
@@ -12,9 +14,20 @@ import {
     EditButton,
 } from "react-admin";
 
+const PostsFilter = (props) => (
+    <Filter {...props}>
+        <TextInput label="Название" source="title" alwaysOn />
+    </Filter>
+);
+
 const PostsList = (props) => {
     return (
-        <List {...props} pagination={false} title="Посты">
+        <List
+            {...props}
+            pagination={false}
+            title="Посты"
+            filters={<PostsFilter />}
+        >
             <Datagrid>
                 <EditButton />
                 <TextField label="ID" source="id" sortable={false} />

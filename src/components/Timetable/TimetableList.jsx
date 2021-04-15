@@ -18,7 +18,7 @@ import {
 
 const TimetableFilter = (props) => (
     <Filter {...props}>
-        <TextInput label="Ключ" source="key" alwaysOn />
+        <TextInput label="Название" source="title" alwaysOn />
     </Filter>
 );
 
