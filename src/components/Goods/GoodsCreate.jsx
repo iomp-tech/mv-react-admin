@@ -284,7 +284,7 @@ const GoodsCreate = (props) => {
                                             color: "#ccc",
                                         }}
                                     >
-                                        http://iomp.ru/shop/pages/
+                                        http://mastervision.su/shop/pages/
                                     </p>
 
                                     <TextInput

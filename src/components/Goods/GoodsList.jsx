@@ -43,7 +43,7 @@ const GoodsList = (props) => {
                     source="href"
                     sortable={false}
                 />
-                <div>https://iomp.ru/shop/pages/</div>
+                <div>https://mastervision.su/shop/pages/</div>
                 <TextField
                     label="Ссылка на лендинг страницу"
                     source="url"

@@ -1,4 +1,4 @@
-### Админ панель для онлайн-института психологии - Institute of Modern Psychology
+### Админ панель для онлайн-института - MasterVision
 
 ## Стек технологий
 
@@ -13,12 +13,12 @@
 ## Установка
 Клонируйте репозиторий.
 ```
-git clone https://github.com/iomp-tech/iomp-react-admin.git
+git clone https://github.com/iomp-tech/mv-react-admin.git
 ```
 
 Переход в рабочий каталог.
 ```
-cd iomp-react-admin
+cd mv-react-admin
 ```
 
 Установка зависимостей, запуск сборки.

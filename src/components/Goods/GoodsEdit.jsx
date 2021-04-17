@@ -286,7 +286,7 @@ const GoodsEdit = (props) => {
                                             color: "#ccc",
                                         }}
                                     >
-                                        http://iomp.ru/shop/pages/
+                                        https://mastervision.su/shop/pages/
                                     </p>
 
                                     <TextInput

@@ -2,8 +2,7 @@ import { fetchUtils } from "react-admin";
 import restServerProvider from 'ra-data-json-server';
 import { format, isDate } from "date-fns";
 
-export const servicesHost = 'https://api.iomp.ru/public/api';
-//http://127.0.0.1:8000/api
+export const servicesHost = 'http://cn40840.tmweb.ru/api/public/api';
 
 const httpClient = (url, options = {}) => {
 	if (!options.headers) {

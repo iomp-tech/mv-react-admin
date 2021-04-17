@@ -77,11 +77,6 @@ export { default as TimetableTypeEdit } from './Timetable/TimetableType/Timetabl
 export { default as FormSubcsribeList } from './FormSubcsribe/FormSubcsribeList';
 export { default as FormSubcsribeEdit } from './FormSubcsribe/FormSubcsribeEdit';
 
-// institute
-export { default as InstituteList } from './Institute/InstituteList';
-export { default as InstituteCreate } from './Institute/InstituteCreate';
-export { default as InstituteEdit } from './Institute/InstituteEdit';
-
 // users
 export { default as UsersList } from './Users/UsersList';
 export { default as UserEdit } from './Users/UserEdit';
@@ -89,7 +84,3 @@ export { default as UserEdit } from './Users/UserEdit';
 // integrationPage
 export { default as IntegrationPageList } from './IntegrationPage/IntegrationPageList';
 export { default as IntegrationPageEdit } from './IntegrationPage/IntegrationPageEdit';
-
-// courses
-export { default as CoursesList } from './Courses/CoursesList';
-export { default as CoursesEdit } from './Courses/CoursesEdit';

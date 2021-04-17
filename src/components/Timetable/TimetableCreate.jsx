@@ -344,7 +344,7 @@ const TimetableCreate = (props) => {
                                             color: "#ccc",
                                         }}
                                     >
-                                        http://iomp.ru/timetable/pages/
+                                        https://mastervision.su/timetable/pages/
                                     </p>
 
                                     <TextInput
