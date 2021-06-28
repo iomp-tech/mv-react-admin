@@ -113,6 +113,31 @@ const GoodsEdit = (props) => {
                                     validate={[required()]}
                                     style={defaultStyle}
                                 />
+                                <SelectInput
+                                    label="Идентификатор магазина АвтоВебОфис от куда товар"
+                                    source="awo_shop"
+                                    choices={[
+                                        {
+                                            key: "shop.mastervision.su",
+                                            title: "shop.mastervision.su",
+                                        },
+                                        {
+                                            key: "shop.mv-centr.ru",
+                                            title: "shop.mv-centr.ru",
+                                        },
+                                    ]}
+                                    optionValue="key"
+                                    optionText="title"
+                                    validate={[required()]}
+                                    style={defaultStyle}
+                                />
+                                <TextInput
+                                    source="awo_shop_title"
+                                    label="Название магазина АвтоВебОфис от куда товар"
+                                    type="text"
+                                    validate={[required()]}
+                                    style={defaultStyle}
+                                />
                                 <TextInput
                                     source="title"
                                     label="Название товара"

@@ -29,8 +29,13 @@ const UsersList = (props) => {
                 <EditButton />
                 <ImageField label="Аватар" source="avatar" sortable={false} />
                 <TextField
-                    label="ID на АвтоВебОфис"
-                    source="id_awo"
+                    label="ID на АвтоВебОфис на магазине №1"
+                    source="id_awo_shop1"
+                    sortable={false}
+                />
+                <TextField
+                    label="ID на АвтоВебОфис на магазине №2"
+                    source="id_awo_shop2"
                     sortable={false}
                 />
                 <TextField label="Имя" source="first_name" sortable={false} />

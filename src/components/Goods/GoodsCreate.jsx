@@ -30,7 +30,6 @@ const GoodsCreate = (props) => {
     const [teachersSection, setTeachersSection] = React.useState([]);
     const [type, setType] = React.useState([]);
     const [goods, setGoods] = React.useState([]);
-    const [selectedDate, handleDateChange] = React.useState(new Date());
 
     React.useEffect(() => {
         myDataProfider
@@ -86,18 +85,6 @@ const GoodsCreate = (props) => {
             });
     }, []);
 
-    const blocks = [
-        {title: "Главная 1", key: "main1"},
-        {title: "Главная 2", key: "main2"},
-        {title: "Квадраты", key: "section-squares"},
-        {title: "Слайдер с текстом", key: "slider-text"},
-        {title: "Состав продукта", key: "composition-product"},
-        {title: "Преподаватели", key: "teachers"},
-        {title: "Отзывы (фото)", key: "feedback-photos"},
-        {title: "Отзывы (видео)", key: "feedback-videos"},
-        {title: "Товары", key: "goods"},
-    ];
-
     return (
         <Create {...props} title="Новый товар">
             <SimpleForm>
@@ -109,6 +96,31 @@ const GoodsCreate = (props) => {
                                     source="id_awo"
                                     label="ID товара на АвтоВебОфис"
                                     type="number"
+                                    validate={[required()]}
+                                    style={defaultStyle}
+                                />
+                                <SelectInput
+                                    label="Идентификатор магазина АвтоВебОфис от куда товар"
+                                    source="awo_shop"
+                                    choices={[
+                                        {
+                                            key: "shop.mastervision.su",
+                                            title: "shop.mastervision.su",
+                                        },
+                                        {
+                                            key: "shop.mv-centr.ru",
+                                            title: "shop.mv-centr.ru",
+                                        },
+                                    ]}
+                                    optionValue="key"
+                                    optionText="title"
+                                    validate={[required()]}
+                                    style={defaultStyle}
+                                />
+                                <TextInput
+                                    source="awo_shop_title"
+                                    label="Название магазина АвтоВебОфис от куда товар"
+                                    type="text"
                                     validate={[required()]}
                                     style={defaultStyle}
                                 />
