@@ -84,3 +84,8 @@ export { default as UserEdit } from './Users/UserEdit';
 // integrationPage
 export { default as IntegrationPageList } from './IntegrationPage/IntegrationPageList';
 export { default as IntegrationPageEdit } from './IntegrationPage/IntegrationPageEdit';
+
+// feedback
+export { default as FeedbackList } from './Feedback/FeedbackList';
+export { default as FeedbackCreate } from './Feedback/FeedbackCreate';
+export { default as FeedbackEdit } from './Feedback/FeedbackEdit';

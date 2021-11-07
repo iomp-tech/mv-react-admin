@@ -38,7 +38,7 @@ const Login = () => {
         <ThemeProvider theme={createMuiTheme(defaultTheme)}>
             <form onSubmit={submit} style={style}>
                 <img
-                    src="http://cn40840.tmweb.ru/api/public/storage/all/logo.svg"
+                    src="https://api2.mastervision.su/public/storage/all/logo.svg"
                     alt="MasterVision"
                     style={{
                         width: "250px",
