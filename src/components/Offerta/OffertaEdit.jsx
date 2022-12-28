@@ -1,15 +1,7 @@
 import React from "react";
 
-import {
-    Edit,
-    SimpleForm,
-    TextInput,
-    ImageInput,
-    ImageField,
-    required,
-} from "react-admin";
-
-import {PreviewImage} from ".././";
+import {Edit, SimpleForm, TextInput, required} from "react-admin";
+import RichTextInput from "ra-input-rich-text";
 
 import {defaultStyle} from "../../style";
 
@@ -23,7 +15,8 @@ const OffertaEdit = (props) => {
                     validate={[required()]}
                     style={defaultStyle}
                 />
-                <TextInput
+
+                <RichTextInput
                     source="description"
                     label="Описание"
                     validate={[required()]}

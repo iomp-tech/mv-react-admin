@@ -4,12 +4,9 @@ import {
     Edit,
     SimpleForm,
     TextInput,
-    ImageInput,
-    ImageField,
     required,
 } from "react-admin";
-
-import {PreviewImage} from ".././";
+import RichTextInput from "ra-input-rich-text";
 
 import {defaultStyle} from "../../style";
 
@@ -23,7 +20,8 @@ const PolicyEdit = (props) => {
                     validate={[required()]}
                     style={defaultStyle}
                 />
-                <TextInput
+
+                <RichTextInput
                     source="description"
                     label="Описание"
                     validate={[required()]}

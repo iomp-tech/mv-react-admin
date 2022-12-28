@@ -1,10 +1,5 @@
 import React from "react";
-import {
-    List,
-    Datagrid,
-    TextField,
-    EditButton,
-} from "react-admin";
+import {List, Datagrid, TextField, EditButton} from "react-admin";
 
 const PolicyList = (props) => {
     return (
@@ -12,11 +7,6 @@ const PolicyList = (props) => {
             <Datagrid>
                 <EditButton />
                 <TextField label="Заголовок" source="title" sortable={false} />
-                <TextField
-                    label="Описание"
-                    source="description"
-                    sortable={false}
-                />
             </Datagrid>
         </List>
     );
